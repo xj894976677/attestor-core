@@ -38,7 +38,7 @@ export async function verifyOprfProofs(
 
 	const results: OprfVerificationResult[] = []
 
-	logger.info(`Verifying ${bundleData.oprfVerifications.length} OPRF proofs`)
+	logger.debug(`Verifying ${bundleData.oprfVerifications.length} OPRF proofs`)
 
 	for(const [idx, oprfData] of bundleData.oprfVerifications.entries()) {
 		try {
@@ -58,7 +58,7 @@ export async function verifyOprfProofs(
 		}
 	}
 
-	logger.info(`Successfully verified ${results.length} OPRF proofs`)
+	logger.debug(`Successfully verified ${results.length} OPRF proofs`)
 	return results
 }
 
@@ -160,7 +160,7 @@ async function verifySingleOprfProof(
 	}
 
 	// Log position calculation
-	logger.info(`OPRF #${index}: streamPos=${oprfData.streamPos}, locationPos=${oprfLocation.pos}, finalPos=${oprfData.streamPos + oprfLocation.pos}, len=${oprfLocation.len}`)
+	logger.debug(`OPRF #${index}: pos=${oprfData.streamPos + oprfLocation.pos}, len=${oprfLocation.len}`)
 
 	return {
 		// The position in the plaintext where to replace (stream position + OPRF location within chunk)
@@ -196,12 +196,7 @@ export function replaceOprfRanges(
 
 		// Log what we're about to replace
 		const currentContent = plaintext.slice(result.position, result.position + result.length)
-		logger.info(`OPRF #${idx} replacing at pos ${result.position}-${result.position + result.length}: "${Buffer.from(currentContent).toString('utf8')}" -> "${base64Output.substring(0, result.length)}"`)
-
-		// Show context
-		const contextBefore = plaintext.slice(Math.max(0, result.position - 20), result.position)
-		const contextAfter = plaintext.slice(result.position + result.length, Math.min(plaintext.length, result.position + result.length + 20))
-		logger.info(`OPRF #${idx} context: "${Buffer.from(contextBefore).toString('utf8')}[${Buffer.from(currentContent).toString('utf8')}]${Buffer.from(contextAfter).toString('utf8')}")`)
+		logger.debug(`OPRF #${idx} replacing at pos ${result.position}-${result.position + result.length}`)
 
 		// Replace the range with base64 output (truncated if necessary)
 		let actualBytesWritten = 0
@@ -222,10 +217,9 @@ export function replaceOprfRanges(
 		}
 
 		// Log result
-		const newContent = modifiedPlaintext.slice(result.position, result.position + result.length)
-		logger.info(`OPRF #${idx} completed: wrote ${actualBytesWritten} bytes, result="${Buffer.from(newContent).toString('utf8')}"`)
+		logger.debug(`OPRF #${idx} completed: wrote ${actualBytesWritten} bytes`)
 	}
 
-	logger.info(`Replaced ${oprfResults.length} OPRF ranges in plaintext`)
+	logger.debug(`Replaced ${oprfResults.length} OPRF ranges in plaintext`)
 	return modifiedPlaintext
 }

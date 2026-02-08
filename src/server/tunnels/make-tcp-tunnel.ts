@@ -45,14 +45,14 @@ export const makeTcpTunnel: MakeTunnelFn<ExtraOpts, TCPSocketProperties> = async
 	...opts
 }) => {
 	const transcript: TCPSocketProperties['transcript'] = []
-	logger.info(
+	logger.debug(
 		{ host: opts.host, port: opts.port, geoLocation: opts.geoLocation },
-		'[DEBUG] Connecting TCP socket...'
+		'connecting TCP socket'
 	)
 	const socket = await connectTcp({ ...opts, logger })
 	logger.info(
-		{ host: opts.host, port: opts.port, localPort: socket.localPort, remoteAddress: socket.remoteAddress },
-		'[DEBUG] TCP socket connected'
+		{ host: opts.host, port: opts.port, remoteAddress: socket.remoteAddress },
+		'TCP connected'
 	)
 
 	let closed = false
@@ -66,23 +66,19 @@ export const makeTcpTunnel: MakeTunnelFn<ExtraOpts, TCPSocketProperties> = async
 		}
 
 		totalBytesFromServer += message.length
-		logger.info(
-			{ bytes: message.length, totalBytesFromServer },
-			'[DEBUG] TCP data received from remote server'
-		)
 
 		onMessage?.(message)
 		transcript.push({ sender: 'server', message })
 	})
 
 	socket.once('error', (err) => {
-		logger.info({ err: err.message }, '[DEBUG] TCP socket error')
+		logger.error({ err: err.message }, 'TCP socket error')
 	})
 	// socket.once('error', onSocketClose)
 	socket.once('close', (hadError) => {
 		logger.info(
-			{ hadError, totalBytesFromServer, totalBytesToServer },
-			'[DEBUG] TCP socket closed'
+			{ totalBytesFromServer, totalBytesToServer },
+			'TCP closed'
 		)
 		onSocketClose(undefined)
 	})
@@ -93,15 +89,11 @@ export const makeTcpTunnel: MakeTunnelFn<ExtraOpts, TCPSocketProperties> = async
 		createRequest: opts,
 		async write(data) {
 			totalBytesToServer += data.length
-			logger.info(
-				{ bytes: data.length, totalBytesToServer },
-				'[DEBUG] TCP data sent to remote server (client -> Instagram)'
-			)
 			transcript.push({ sender: 'client', message: data })
 			await new Promise<void>((resolve, reject) => {
 				socket.write(data, err => {
 					if(err) {
-						logger.info({ err: err.message }, '[DEBUG] TCP write error')
+						logger.error({ err: err.message }, 'TCP write error')
 						reject(err)
 					} else {
 						resolve()

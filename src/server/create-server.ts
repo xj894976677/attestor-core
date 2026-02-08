@@ -67,7 +67,7 @@ export async function createServer(port = PORT) {
 			const chunks: Buffer[] = []
 			req.on('data', (chunk: Buffer) => chunks.push(chunk))
 			req.on('end', () => {
-				LOGGER.info({ source: 'sdk-logs' }, Buffer.concat(chunks).toString('utf-8').slice(0, 500))
+				LOGGER.debug({ source: 'sdk-logs' }, 'received sdk log dump')
 				res.statusCode = 200
 				res.setHeader('Content-Type', 'application/json')
 				res.end('{"success":true}')

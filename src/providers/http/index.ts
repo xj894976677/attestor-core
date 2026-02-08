@@ -169,7 +169,7 @@ const HTTP_PROVIDER: Provider<'http'> = {
 		}
 	},
 	getResponseRedactions({ response, params: rawParams, logger, ctx }) {
-		logger.debug({ response: base64.encode(response), params: rawParams })
+		logger.debug('getResponseRedactions called')
 
 		const res = parseHttpResponse(response)
 		if(!rawParams.responseRedactions?.length) {
@@ -441,7 +441,7 @@ const HTTP_PROVIDER: Provider<'http'> = {
 			const clientTranscript = base64.encode(concatenateUint8Arrays(clientMsgs))
 			const serverTranscript = base64.encode(concatenateUint8Arrays(serverMsgs))
 
-			logger.debug({ request: clientTranscript, response: serverTranscript, params: paramsAny })
+			logger.debug({ requestLen: clientTranscript.length, responseLen: serverTranscript.length }, 'transcript lengths')
 		}
 	},
 }

@@ -105,7 +105,7 @@ export async function assertValidClaimRequest(
 		applData, data, logger, { version: metadata.clientVersion }
 	)
 	if(newData !== data) {
-		logger.info({ newData }, 'updated claim info')
+		logger.debug('claim info updated by provider')
 	}
 
 	return newData

@@ -5,6 +5,7 @@ import { getEnvVariable } from '#src/utils/env.ts'
 import { logger } from '#src/utils/logger.ts'
 
 let apm: Agent | undefined
+let apmWarningLogged = false
 
 /**
  * Initialises the APM agent if required,
@@ -20,10 +21,10 @@ export function getApm(): Agent | undefined {
 		!getEnvVariable('ELASTIC_APM_SERVER_URL')
 		|| !getEnvVariable('ELASTIC_APM_SECRET_TOKEN')
 	) {
-		logger.info(
-			'ELASTIC_APM_SERVER_URL or ELASTIC_APM_SECRET_TOKEN not found'
-			+ ' in env, APM agent not initialised'
-		)
+		if(!apmWarningLogged) {
+			logger.debug('APM not configured (no ELASTIC_APM_SERVER_URL)')
+			apmWarningLogged = true
+		}
 		return undefined
 	}
 

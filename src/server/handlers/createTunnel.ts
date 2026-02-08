@@ -9,8 +9,8 @@ export const createTunnel: RPCHandler<'createTunnel'> = async(
 	{ tx, logger, client }
 ) => {
 	logger.info(
-		{ tunnelId: id, host: opts.host, port: opts.port, geoLocation: opts.geoLocation },
-		'[DEBUG] createTunnel request received'
+		{ tunnelId: id, host: opts.host, port: opts.port },
+		'createTunnel'
 	)
 
 	if(client.tunnels[id]) {
@@ -44,18 +44,18 @@ export const createTunnel: RPCHandler<'createTunnel'> = async(
 					return
 				}
 
-				logger.info(
+				logger.debug(
 					{ tunnelId: id, bytes: message.length },
-					'[DEBUG] TCP <- Instagram (forwarding to client)'
+					'TCP -> WS'
 				)
 
 				return client
 					.sendMessage({ tunnelMessage: { tunnelId: id, message } })
 			},
 			onClose(err) {
-				logger.info(
+				logger.debug(
 					{ tunnelId: id, error: err?.message },
-					'[DEBUG] TCP connection to Instagram closed'
+					'TCP tunnel closed'
 				)
 				cancelBgp?.()
 
@@ -102,10 +102,7 @@ export const createTunnel: RPCHandler<'createTunnel'> = async(
 
 		client.tunnels[id] = tunnel
 
-		logger.info(
-			{ tunnelId: id, host: opts.host, port: opts.port },
-			'[DEBUG] TCP tunnel created successfully'
-		)
+		logger.info({ tunnelId: id }, 'tunnel created')
 
 		return {}
 	} catch(err) {

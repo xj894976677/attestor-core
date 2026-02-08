@@ -17,7 +17,8 @@
     }
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build": "tsc -p tsconfig.build.json && npm run build:lib",
+    "build:lib": "node --experimental-strip-types src/scripts/build-lib.ts",
     "build:browser": "sh ./src/scripts/build-browser.sh",
     "run:tsc": "node --experimental-strip-types",
     "start": "npm run run:tsc -- src/scripts/start-server.ts",
@@ -80,8 +81,8 @@
     "@peculiar/asn1-x509": "^2.5.0",
     "@peculiar/webcrypto": "^1.5.0",
     "@peculiar/x509": "^1.14.0",
-    "@reclaimprotocol/tls": "github:reclaimprotocol/tls",
-    "@reclaimprotocol/zk-symmetric-crypto": "^5.0.4",
+    "@reclaimprotocol/tls": "file:../tls",
+    "@reclaimprotocol/zk-symmetric-crypto": "file:../zk-symmetric-crypto/js",
     "ajv": "^8.17.1",
     "canonicalize": "^2.0.0",
     "cbor-x": "^1.6.0",

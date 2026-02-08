@@ -76,9 +76,9 @@ export class AttestorServerSocket extends AttestorSocket implements IAttestorSer
 		)
 		try {
 			const initMsgs = getInitialMessagesFromQuery(req)
-			logger.trace(
+			logger.info(
 				{ initMsgs: initMsgs.length },
-				'new connection, validating...'
+				'[DEBUG] new WebSocket connection, processing init messages...'
 			)
 			for(const msg of initMsgs) {
 				await handleMessage.call(client, msg)
@@ -107,6 +107,10 @@ async function handleTunnelMessage(
 	{ data: { tunnelId, message } }: RPCEvent<'tunnel-message'>
 ) {
 	try {
+		this.logger?.info(
+			{ tunnelId, bytes: message.length },
+			'[DEBUG] WS -> TCP: forwarding client message to tunnel'
+		)
 		const tunnel = this.getTunnel(tunnelId)
 		await tunnel.write(message)
 	} catch(err) {
@@ -135,7 +139,7 @@ async function handleRpcRequest(
 	}, DEFAULT_RPC_TIMEOUT_MS)
 
 	try {
-		logger.debug({ data }, 'handling RPC request')
+		logger.info({ type, requestId }, '[DEBUG] handling RPC request')
 
 		const handler = HANDLERS[type] as RPCHandler<typeof type>
 		const res = await handler(data, { client: this, logger, tx })

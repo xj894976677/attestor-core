@@ -1,0 +1,41 @@
+{
+  "id": "joseph-binance-001",
+  "providerId": "joseph-binance",
+  "httpProviderId": "2b22db5c-78d9-4d82-84f0-a9e0a4ed0470",
+  "name": "Joseph_binance",
+  "description": "Binance KYC Level - Name, Surname, DOB, Status",
+  "logoUrl": "https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/binance.com-00a58378-085e-4a47-b651-1967548a06b3.png",
+  "loginUrl": "https://accounts.binance.com/en/login",
+  "geoLocation": "PT",
+  "injectionType": "MSWJS",
+  "disableRequestReplay": true,
+  "verificationType": "WITNESS",
+  "requestData": [
+    {
+      "url": "https://www.binance.com/bapi/kyc/v2/private/certificate/user-kyc/current-kyc-status",
+      "expectedPageUrl": "",
+      "urlType": "TEMPLATE",
+      "method": "POST",
+      "writeRedactionMode": "key-update",
+      "responseMatches": [
+        { "type": "contains", "value": "\"currentKycLevel\":\"{{KYC_status}}\"", "invert": false },
+        { "type": "contains", "value": "\"lastName\":\"{{Surname}}\"", "invert": false },
+        { "type": "contains", "value": "\"dob\":\"{{DOB}}\"", "invert": false },
+        { "type": "contains", "value": "\"firstName\":\"{{Name}}\"", "invert": false }
+      ],
+      "responseRedactions": [
+        { "jsonPath": "$.data.currentKycLevel" },
+        { "jsonPath": "$.data.fillInfo.lastName" },
+        { "jsonPath": "$.data.fillInfo.dob" },
+        { "jsonPath": "$.data.fillInfo.firstName" }
+      ],
+      "bodySniff": { "enabled": false, "template": null },
+      "responseVariables": ["KYC_status", "Surname", "DOB", "Name"]
+    }
+  ],
+  "useIncognitoWebview": false,
+  "customInjection": "",
+  "userAgent": { "ios": "", "android": "" },
+  "metadata": {},
+  "version": { "major": 1, "minor": 0, "patch": 0 }
+}

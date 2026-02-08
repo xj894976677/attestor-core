@@ -1,0 +1,71 @@
+{
+  "providerId": "2b22db5c-78d9-4d82-84f0-a9e0a4ed0470",
+  "name": "Binance KYC Level",
+  "description": "Name, Surname, DOB, Status",
+  "logoUrl": "https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/binance.com-00a58378-085e-4a47-b651-1967548a06b3.png",
+  "loginUrl": "https://accounts.binance.com/en/login",
+  "customInjection": "",
+  "geoLocation": "PT",
+  "injectionType": "MSWJS",
+  "disableRequestReplay": true,
+  "writeRedactionMode": null,
+  "disableRedaction": false,
+  "requestData": [
+    {
+      "url": "https://www.binance.com/bapi/kyc/v2/private/certificate/user-kyc/current-kyc-status",
+      "expectedPageUrl": "",
+      "urlType": "TEMPLATE",
+      "method": "POST",
+      "responseMatches": [
+        {
+          "value": "\"currentKycLevel\":\"{{KYC_status}}\"",
+          "type": "contains",
+          "invert": false
+        },
+        {
+          "value": "\"lastName\":\"{{Surname}}\"",
+          "type": "contains",
+          "invert": false
+        },
+        {
+          "value": "\"dob\":\"{{DOB}}\"",
+          "type": "contains",
+          "invert": false
+        },
+        {
+          "value": "\"firstName\":\"{{Name}}\"",
+          "type": "contains",
+          "invert": false
+        }
+      ],
+      "responseRedactions": [
+        {
+          "xPath": "",
+          "jsonPath": "$.data.currentKycLevel",
+          "regex": "\"currentKycLevel\":\"(.*)\""
+        },
+        {
+          "xPath": "",
+          "jsonPath": "$.data.fillInfo.lastName",
+          "regex": "\"lastName\":\"(.*)\""
+        },
+        {
+          "xPath": "",
+          "jsonPath": "$.data.fillInfo.dob",
+          "regex": "\"dob\":\"(.*)\""
+        },
+        {
+          "xPath": "",
+          "jsonPath": "$.data.fillInfo.firstName",
+          "regex": "\"firstName\":\"(.*)\""
+        }
+      ],
+      "bodySniff": {
+        "enabled": false,
+        "template": null
+      },
+      "responseVariables": ["KYC_status", "Surname", "DOB", "Name"],
+      "additionalClientOptions": null
+    }
+  ]
+}

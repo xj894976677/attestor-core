@@ -45,9 +45,19 @@ export const makeTcpTunnel: MakeTunnelFn<ExtraOpts, TCPSocketProperties> = async
 	...opts
 }) => {
 	const transcript: TCPSocketProperties['transcript'] = []
+	logger.info(
+		{ host: opts.host, port: opts.port, geoLocation: opts.geoLocation },
+		'[DEBUG] Connecting TCP socket...'
+	)
 	const socket = await connectTcp({ ...opts, logger })
+	logger.info(
+		{ host: opts.host, port: opts.port, localPort: socket.localPort, remoteAddress: socket.remoteAddress },
+		'[DEBUG] TCP socket connected'
+	)
 
 	let closed = false
+	let totalBytesFromServer = 0
+	let totalBytesToServer = 0
 
 	socket.on('data', message => {
 		if(closed) {
@@ -55,22 +65,43 @@ export const makeTcpTunnel: MakeTunnelFn<ExtraOpts, TCPSocketProperties> = async
 			return
 		}
 
+		totalBytesFromServer += message.length
+		logger.info(
+			{ bytes: message.length, totalBytesFromServer },
+			'[DEBUG] TCP data received from remote server'
+		)
+
 		onMessage?.(message)
 		transcript.push({ sender: 'server', message })
 	})
 
+	socket.once('error', (err) => {
+		logger.info({ err: err.message }, '[DEBUG] TCP socket error')
+	})
 	// socket.once('error', onSocketClose)
-	socket.once('close', () => onSocketClose(undefined))
+	socket.once('close', (hadError) => {
+		logger.info(
+			{ hadError, totalBytesFromServer, totalBytesToServer },
+			'[DEBUG] TCP socket closed'
+		)
+		onSocketClose(undefined)
+	})
 
 	return {
 		socket,
 		transcript,
 		createRequest: opts,
 		async write(data) {
+			totalBytesToServer += data.length
+			logger.info(
+				{ bytes: data.length, totalBytesToServer },
+				'[DEBUG] TCP data sent to remote server (client -> Instagram)'
+			)
 			transcript.push({ sender: 'client', message: data })
 			await new Promise<void>((resolve, reject) => {
 				socket.write(data, err => {
 					if(err) {
+						logger.info({ err: err.message }, '[DEBUG] TCP write error')
 						reject(err)
 					} else {
 						resolve()

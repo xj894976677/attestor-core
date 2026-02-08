@@ -8,6 +8,7 @@ import type { ExternalRPCIncomingMsg, ExternalRPCOutgoingMsg } from '#src/extern
 declare global {
 	function readline(): string
 	function print(...args: any[]): void
+	// @ts-expect-error - JSC built-in, conflicts with @types/debug namespace
 	function debug(...args: any[]): void
 	function quit(): void
 

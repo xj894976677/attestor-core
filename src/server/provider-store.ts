@@ -87,9 +87,9 @@ export function getProviderById(providerId: string): ProviderConfig | undefined 
 		}
 	}
 
-	// Fallback: scan all files
+	// Fallback: scan all files, match by providerId or httpProviderId
 	const all = getAllProviders()
-	return all.find(p => p.providerId === providerId)
+	return all.find(p => p.providerId === providerId || p.httpProviderId === providerId)
 }
 
 /**

@@ -6,6 +6,8 @@ import type { WebSocket } from 'ws'
 import { WebSocketServer } from 'ws'
 
 import { API_SERVER_PORT, BROWSER_RPC_PATHNAME, WS_PATHNAME } from '#src/config/index.ts'
+import { handleProviderApiRequest } from '#src/server/provider-api.ts'
+import { handleSessionApiRequest } from '#src/server/session-api.ts'
 import { AttestorServerSocket } from '#src/server/socket.ts'
 import { getAttestorAddress } from '#src/server/utils/generics.ts'
 import { addKeepAlive } from '#src/server/utils/keep-alive.ts'
@@ -42,6 +44,43 @@ export async function createServer(port = PORT) {
 	const wss = new WebSocketServer({ noServer: true })
 	http.on('upgrade', handleUpgrade.bind(wss))
 	http.on('request', (req, res) => {
+		// CORS headers for all requests
+		res.setHeader('Access-Control-Allow-Origin', '*')
+		res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+		res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+
+		// Handle CORS preflight
+		if(req.method === 'OPTIONS') {
+			res.statusCode = 204
+			res.end()
+			return
+		}
+
+		// Session API routes
+		if(req.url?.startsWith('/api/sdk/') || req.url?.startsWith('/session/')) {
+			handleSessionApiRequest(req, res)
+			return
+		}
+
+		// Logs endpoint (accepts POST, returns 200)
+		if(req.url?.startsWith('/api/logs')) {
+			const chunks: Buffer[] = []
+			req.on('data', (chunk: Buffer) => chunks.push(chunk))
+			req.on('end', () => {
+				LOGGER.debug({ source: 'sdk-logs' }, 'received sdk log dump')
+				res.statusCode = 200
+				res.setHeader('Content-Type', 'application/json')
+				res.end('{"success":true}')
+			})
+			return
+		}
+
+		// Provider API routes
+		if(req.url?.startsWith('/api/providers')) {
+			handleProviderApiRequest(req, res)
+			return
+		}
+
 		// simple way to serve files at the browser RPC path
 		if(!req.url?.startsWith(BROWSER_RPC_PATHNAME)) {
 			res.statusCode = 404

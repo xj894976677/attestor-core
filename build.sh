@@ -33,6 +33,23 @@ fi
 echo "=== 重建原生模块（确保匹配当前 Node 版本）==="
 npm rebuild re2 koffi 2>/dev/null || echo "警告: 部分原生模块重建失败"
 
+echo "=== 检查环境配置文件 ==="
+if [ ! -f ".env.development" ]; then
+    echo ".env.development 不存在，从 .env.sample 生成默认开发配置..."
+    cp .env.sample .env.development
+    sed -i '' 's|^PRIVATE_KEY=.*|PRIVATE_KEY=0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80|' .env.development
+    sed -i '' 's|^CHAIN_ID=.*|CHAIN_ID=31337|' .env.development
+    sed -i '' 's|^RECLAIM_PUBLIC_URL=.*|RECLAIM_PUBLIC_URL=ws://localhost:8001|' .env.development
+    sed -i '' 's|^ACCEPT_CLAIM_PAYMENT_REQUESTS=.*|ACCEPT_CLAIM_PAYMENT_REQUESTS=1|' .env.development
+    sed -i '' 's|^TOPRF_PUBLIC_KEY=.*|TOPRF_PUBLIC_KEY=0x8814db70394db2d1f819cf1a93a26c71080d170fac919bdfdb9cebf7cebab38a|' .env.development
+    sed -i '' 's|^TOPRF_SHARE_PRIVATE_KEY=.*|TOPRF_SHARE_PRIVATE_KEY=0x05d5f9b4d08f17d66b6569e4d07f036818070d7b6c049d3d533f54c561c9d3b9|' .env.development
+    sed -i '' 's|^TOPRF_SHARE_PUBLIC_KEY=.*|TOPRF_SHARE_PUBLIC_KEY=0x8814db70394db2d1f819cf1a93a26c71080d170fac919bdfdb9cebf7cebab38a|' .env.development
+    sed -i '' 's|^DISABLE_BGP_CHECKS=.*|DISABLE_BGP_CHECKS=1|' .env.development
+    echo ".env.development 已生成"
+else
+    echo ".env.development 已存在"
+fi
+
 echo "=== 确保 data/providers 目录存在 ==="
 mkdir -p data/providers
 

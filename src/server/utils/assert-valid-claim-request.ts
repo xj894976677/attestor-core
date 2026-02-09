@@ -101,6 +101,7 @@ export async function assertValidClaimRequest(
 
 	// get all application data messages
 	const applData = extractApplicationDataFromTranscript(receipt)
+
 	const newData = await assertValidProviderTranscript(
 		applData, data, logger, { version: metadata.clientVersion }
 	)
@@ -280,6 +281,19 @@ export async function decryptTranscript(
 			plaintext = result.plaintext
 			redacted = false
 			plaintextLength = plaintext.length
+
+			const decoder = new TextDecoder('utf-8', { fatal: false })
+			const keyHex = Buffer.from(directReveal.key).toString('hex')
+			const ciphertextPreview = Buffer.from(content.slice(0, 64)).toString('hex')
+			const plaintextStr = decoder.decode(plaintext)
+			logger.info(
+				`\n=======================================================================\n` +
+				`[directReveal] packet #${i} | sender: ${isServer ? 'server' : 'client'}\n` +
+				`session key: ${keyHex}\n` +
+				`ciphertext size: ${content.length} bytes | preview: ${ciphertextPreview}...\n` +
+				`plaintext (${plaintextLength} bytes):\n${plaintextStr}\n` +
+				`=======================================================================`
+			)
 		} else if(zkReveal?.proofs?.length) {
 			const iv = sender === TranscriptMessageSenderType
 				.TRANSCRIPT_MESSAGE_SENDER_TYPE_SERVER
@@ -314,9 +328,30 @@ export async function decryptTranscript(
 			plaintext = result.redactedPlaintext
 			redacted = false
 			plaintextLength = plaintext.length
+
+			const decoder2 = new TextDecoder('utf-8', { fatal: false })
+			const ciphertextPreview2 = Buffer.from(content.slice(0, 64)).toString('hex')
+			const plaintextStr2 = decoder2.decode(plaintext)
+			logger.info(
+				`\n=======================================================================\n` +
+				`[zkReveal] packet #${i} | sender: ${isServer ? 'server' : 'client'}\n` +
+				`zk proofs count: ${zkReveal.proofs.length}\n` +
+				`ciphertext size: ${content.length} bytes | preview: ${ciphertextPreview2}...\n` +
+				`redacted plaintext (${plaintextLength} bytes):\n${plaintextStr2}\n` +
+				`=======================================================================`
+			)
 		} else {
 			plaintext = content
 			plaintextLength = plaintext.length
+
+			const decoder3 = new TextDecoder('utf-8', { fatal: false })
+			logger.info(
+				`\n=======================================================================\n` +
+				`[noReveal] packet #${i} | sender: ${isServer ? 'server' : 'client'}\n` +
+				`raw content size: ${content.length} bytes\n` +
+				`content:\n${decoder3.decode(plaintext)}\n` +
+				`=======================================================================`
+			)
 		}
 
 		decryptedTranscript.push({

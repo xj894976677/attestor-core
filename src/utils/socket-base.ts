@@ -28,9 +28,10 @@ export class AttestorSocket implements IAttestorSocket {
 		this.metadata = metadata
 		this.logger = logger
 
+		// @ts-ignore -- ws vs DOM WebSocket type mismatch
 		socket.addEventListener('error', (event) => {
 			const witErr = AttestorError.fromError(
-				event.error || new Error(event.message),
+				(event as any).error || new Error((event as any).message),
 				'ERROR_NETWORK_ERROR'
 			)
 
@@ -47,6 +48,7 @@ export class AttestorSocket implements IAttestorSocket {
 			)
 		))
 
+		// @ts-ignore -- ws vs DOM WebSocket type mismatch
 		socket.addEventListener('message', async({ data }) => {
 			try {
 				await wsMessageHandler.call(this, data)

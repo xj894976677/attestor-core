@@ -1,4 +1,4 @@
-import type { OPRFOperator, ZKEngine, ZKOperator } from '@reclaimprotocol/zk-symmetric-crypto'
+import type { OPRFOperator, ZKEngine, ZKOperator } from '@joclaim/zk-symmetric-crypto'
 import '#src/external-rpc/global.d.ts'
 
 import type { TaskCompletedEventObject } from '#src/avs/contracts/ReclaimServiceManager.ts'

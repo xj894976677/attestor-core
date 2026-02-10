@@ -1,4 +1,4 @@
-import type { Logger as TLSLogger, TLSPacketContext, TLSProtocolVersion } from '@reclaimprotocol/tls'
+import type { Logger as TLSLogger, TLSPacketContext, TLSProtocolVersion } from '@joclaim/tls'
 
 import type { TOPRFProofParams } from '#src/types/zk.ts'
 

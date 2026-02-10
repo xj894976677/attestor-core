@@ -1,8 +1,8 @@
 import {
 	areUint8ArraysEqual,
 	concatenateUint8Arrays
-} from '@reclaimprotocol/tls'
-import type { ZKEngine } from '@reclaimprotocol/zk-symmetric-crypto'
+} from '@joclaim/tls'
+import type { ZKEngine } from '@joclaim/zk-symmetric-crypto'
 
 import type {
 	InitRequest,
@@ -286,7 +286,7 @@ export async function decryptTranscript(
 			const keyHex = Buffer.from(directReveal.key).toString('hex')
 			const ciphertextPreview = Buffer.from(content.slice(0, 64)).toString('hex')
 			const plaintextStr = decoder.decode(plaintext)
-			logger.info(
+			console.log(
 				`\n=======================================================================\n` +
 				`[directReveal] packet #${i} | sender: ${isServer ? 'server' : 'client'}\n` +
 				`session key: ${keyHex}\n` +
@@ -332,7 +332,7 @@ export async function decryptTranscript(
 			const decoder2 = new TextDecoder('utf-8', { fatal: false })
 			const ciphertextPreview2 = Buffer.from(content.slice(0, 64)).toString('hex')
 			const plaintextStr2 = decoder2.decode(plaintext)
-			logger.info(
+			console.log(
 				`\n=======================================================================\n` +
 				`[zkReveal] packet #${i} | sender: ${isServer ? 'server' : 'client'}\n` +
 				`zk proofs count: ${zkReveal.proofs.length}\n` +
@@ -345,7 +345,7 @@ export async function decryptTranscript(
 			plaintextLength = plaintext.length
 
 			const decoder3 = new TextDecoder('utf-8', { fatal: false })
-			logger.info(
+			console.log(
 				`\n=======================================================================\n` +
 				`[noReveal] packet #${i} | sender: ${isServer ? 'server' : 'client'}\n` +
 				`raw content size: ${content.length} bytes\n` +

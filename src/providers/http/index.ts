@@ -1,5 +1,5 @@
-import type { TLSConnectionOptions } from '@reclaimprotocol/tls'
-import { areUint8ArraysEqual, concatenateUint8Arrays, uint8ArrayToBinaryStr } from '@reclaimprotocol/tls'
+import type { TLSConnectionOptions } from '@joclaim/tls'
+import { areUint8ArraysEqual, concatenateUint8Arrays, uint8ArrayToBinaryStr } from '@joclaim/tls'
 import { utils } from 'ethers'
 
 import { DEFAULT_HTTPS_PORT, RECLAIM_USER_AGENT } from '#src/config/index.ts'

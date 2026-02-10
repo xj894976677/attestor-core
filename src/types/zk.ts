@@ -1,4 +1,4 @@
-import type { EncryptionAlgorithm, OPRFOperator, ZKEngine, ZKOperator } from '@reclaimprotocol/zk-symmetric-crypto'
+import type { EncryptionAlgorithm, OPRFOperator, ZKEngine, ZKOperator } from '@joclaim/zk-symmetric-crypto'
 
 import type { TOPRFPayload } from '#src/proto/api.ts'
 

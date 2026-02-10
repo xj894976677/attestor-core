@@ -5,7 +5,7 @@ import type { Duplex } from 'stream'
 import type { WebSocket } from 'ws'
 import { WebSocketServer } from 'ws'
 
-import { API_SERVER_PORT, BROWSER_RPC_PATHNAME, WS_PATHNAME } from '#src/config/index.ts'
+import { API_SERVER_PORT, BGP_WS_URL, BROWSER_RPC_PATHNAME, WS_PATHNAME } from '#src/config/index.ts'
 import { handleProviderApiRequest } from '#src/server/provider-api.ts'
 import { handleSessionApiRequest } from '#src/server/session-api.ts'
 import { AttestorServerSocket } from '#src/server/socket.ts'
@@ -37,7 +37,7 @@ export async function createServer(port = PORT) {
 			},
 		}
 	)
-	const bgpListener = !DISABLE_BGP_CHECKS
+	const bgpListener = !DISABLE_BGP_CHECKS && BGP_WS_URL
 		? createBgpListener(LOGGER.child({ service: 'bgp-listener' }))
 		: undefined
 
@@ -78,6 +78,23 @@ export async function createServer(port = PORT) {
 		// Provider API routes
 		if(req.url?.startsWith('/api/providers')) {
 			handleProviderApiRequest(req, res)
+			return
+		}
+
+		// Geo IP endpoint - proxy for extension SDK
+		if(req.url?.startsWith('/api/geo')) {
+			fetch('https://ipapi.co/json/')
+				.then(r => r.json())
+				.then(data => {
+					res.statusCode = 200
+					res.setHeader('Content-Type', 'application/json')
+					res.end(JSON.stringify(data))
+				})
+				.catch(() => {
+					res.statusCode = 200
+					res.setHeader('Content-Type', 'application/json')
+					res.end(JSON.stringify({ country_code: 'US' }))
+				})
 			return
 		}
 

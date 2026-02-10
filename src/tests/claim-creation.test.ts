@@ -1,5 +1,5 @@
-import { type CipherSuite, type TLSProtocolVersion } from '@reclaimprotocol/tls'
-import type { ZKEngine } from '@reclaimprotocol/zk-symmetric-crypto'
+import { type CipherSuite, type TLSProtocolVersion } from '@joclaim/tls'
+import type { ZKEngine } from '@joclaim/zk-symmetric-crypto'
 import assert from 'node:assert'
 import { readFileSync } from 'node:fs'
 import { beforeEach, describe, it } from 'node:test'

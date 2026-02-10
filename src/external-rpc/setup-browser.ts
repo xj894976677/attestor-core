@@ -1,5 +1,5 @@
-import { setCryptoImplementation } from '@reclaimprotocol/tls'
-import { webcryptoCrypto } from '@reclaimprotocol/tls/webcrypto'
+import { setCryptoImplementation } from '@joclaim/tls'
+import { webcryptoCrypto } from '@joclaim/tls/webcrypto'
 
 import { handleIncomingMessage } from '#src/external-rpc/handle-incoming-msg.ts'
 import { getWsApiUrlFromBaseUrl } from '#src/external-rpc/utils.ts'

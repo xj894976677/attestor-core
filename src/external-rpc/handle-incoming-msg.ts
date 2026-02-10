@@ -1,5 +1,5 @@
 
-import type { ZKEngine } from '@reclaimprotocol/zk-symmetric-crypto'
+import type { ZKEngine } from '@joclaim/zk-symmetric-crypto'
 import { utils } from 'ethers'
 
 import { createClaimOnAvs } from '#src/avs/client/create-claim-on-avs.ts'

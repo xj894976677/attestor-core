@@ -1,4 +1,4 @@
-import type { TLSConnectionOptions } from '@reclaimprotocol/tls'
+import type { TLSConnectionOptions } from '@joclaim/tls'
 
 import type { AttestorVersion, ProviderClaimData } from '#src/proto/api.ts'
 import type { ArraySlice, Logger, RedactedOrHashedArraySlice } from '#src/types/general.ts'

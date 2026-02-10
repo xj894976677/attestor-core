@@ -1,5 +1,5 @@
 import { base64Encode } from '@bufbuild/protobuf/wire'
-import { concatenateUint8Arrays } from '@reclaimprotocol/tls'
+import { concatenateUint8Arrays } from '@joclaim/tls'
 
 import type { ArraySlice, RedactedOrHashedArraySlice, TOPRFProofParams } from '#src/types/index.ts'
 

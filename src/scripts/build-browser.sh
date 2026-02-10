@@ -1,5 +1,5 @@
 set -e
-cp -r node_modules/@reclaimprotocol/zk-symmetric-crypto/resources/ ./browser/resources
+cp -r node_modules/@joclaim/zk-symmetric-crypto/resources/ ./browser/resources
 cp node_modules/snarkjs/build/snarkjs.min.js ./browser/resources/snarkjs/snarkjs.min.js
 # remove r1cs files, we don't need them in prod
 rm -r ./browser/resources/snarkjs/*/*.r1cs

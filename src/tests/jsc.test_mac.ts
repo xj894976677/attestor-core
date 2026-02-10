@@ -4,9 +4,9 @@
  * 1. Ensure you have the jsc binary installed
  * 2. Ensure you have built the jsc file via `npm run build:jsc`
  */
-import { asciiToUint8Array } from '@reclaimprotocol/tls'
-import { makeLocalFileFetch } from '@reclaimprotocol/zk-symmetric-crypto'
-import { initGnark } from '@reclaimprotocol/zk-symmetric-crypto/gnark'
+import { asciiToUint8Array } from '@joclaim/tls'
+import { makeLocalFileFetch } from '@joclaim/zk-symmetric-crypto'
+import { initGnark } from '@joclaim/zk-symmetric-crypto/gnark'
 import { exec } from 'child_process'
 import { after, afterEach, before, beforeEach, describe, it } from 'node:test'
 import { stderr, stdout } from 'process'

@@ -1,5 +1,5 @@
-import type { TLSConnectionOptions, TLSPacketContext } from '@reclaimprotocol/tls'
-import { asciiToUint8Array } from '@reclaimprotocol/tls'
+import type { TLSConnectionOptions, TLSPacketContext } from '@joclaim/tls'
+import { asciiToUint8Array } from '@joclaim/tls'
 
 import { makeRpcTlsTunnel } from '#src/client/tunnels/make-rpc-tls-tunnel.ts'
 import { getAttestorClientFromPool } from '#src/client/utils/attestor-pool.ts'
@@ -488,7 +488,7 @@ async function _createClaimOnAttestor<N extends ProviderName>(
 			}
 		}
 
-		if(provider.getResponseRedactions) {
+		if(provider.getResponseRedactions && redactionMode === 'zk') {
 			serverPacketsToReveal = await getBlocksToReveal(
 				serverBlocks,
 				total => provider.getResponseRedactions!({
@@ -499,6 +499,9 @@ async function _createClaimOnAttestor<N extends ProviderName>(
 				}),
 				performOprf
 			)
+		} else if(redactionMode !== 'zk') {
+			// key-update mode: reveal all server responses directly (no ZK)
+			serverPacketsToReveal = 'all'
 		}
 
 		const revealedPackets: Transcript<Uint8Array> = packets

@@ -62,4 +62,4 @@ export const CERT_ALLOWED_MIMETYPES = [
 	'application/octet-stream'
 ]
 
-export const BGP_WS_URL = 'wss://ris-live.ripe.net/v1/ws/?client=reclaim-hijack-detector'
+export const BGP_WS_URL = process.env.BGP_WS_URL || ''

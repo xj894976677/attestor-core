@@ -1,5 +1,5 @@
-import type { CipherSuite, TLSPacketContext } from '@reclaimprotocol/tls'
-import { concatenateUint8Arrays, crypto } from '@reclaimprotocol/tls'
+import type { CipherSuite, TLSPacketContext } from '@joclaim/tls'
+import { concatenateUint8Arrays, crypto } from '@joclaim/tls'
 
 import type {
 	ClaimTunnelRequest_TranscriptMessage as TranscriptMessage } from '#src/proto/api.ts'

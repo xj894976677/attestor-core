@@ -1,4 +1,4 @@
-import { concatenateUint8Arrays, loadX509FromPem } from '@reclaimprotocol/tls'
+import { concatenateUint8Arrays, loadX509FromPem } from '@joclaim/tls'
 
 import { CERT_ALLOWED_MIMETYPES, MAX_CERT_SIZE_BYTES } from '#src/config/index.ts'
 import type { RPCHandler } from '#src/types/handlers.ts'

@@ -1,5 +1,5 @@
-import type { CipherSuite } from '@reclaimprotocol/tls'
-import { concatenateUint8Arrays, crypto, generateIV } from '@reclaimprotocol/tls'
+import type { CipherSuite } from '@joclaim/tls'
+import { concatenateUint8Arrays, crypto, generateIV } from '@joclaim/tls'
 import type {
 	EncryptionAlgorithm,
 	MakeOPRFOperator,
@@ -10,7 +10,7 @@ import type {
 	ZKEngine,
 	ZKOperator,
 	ZKTOPRFPublicSignals
-} from '@reclaimprotocol/zk-symmetric-crypto'
+} from '@joclaim/zk-symmetric-crypto'
 import {
 	ceilToBlockSizeMultiple,
 	CONFIG as ZK_CONFIG,
@@ -19,12 +19,12 @@ import {
 	makeLocalFileFetch,
 	makeRemoteFileFetch,
 	verifyProof
-} from '@reclaimprotocol/zk-symmetric-crypto'
+} from '@joclaim/zk-symmetric-crypto'
 import {
 	makeGnarkOPRFOperator,
 	makeGnarkZkOperator,
-} from '@reclaimprotocol/zk-symmetric-crypto/gnark'
-import { makeSnarkJsZKOperator } from '@reclaimprotocol/zk-symmetric-crypto/snarkjs'
+} from '@joclaim/zk-symmetric-crypto/gnark'
+import { makeSnarkJsZKOperator } from '@joclaim/zk-symmetric-crypto/snarkjs'
 import PQueue from 'p-queue'
 
 import { DEFAULT_REMOTE_FILE_FETCH_BASE_URL, DEFAULT_ZK_CONCURRENCY, TOPRF_DOMAIN_SEPARATOR } from '#src/config/index.ts'

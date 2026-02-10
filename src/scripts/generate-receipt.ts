@@ -1,5 +1,5 @@
-import { setCryptoImplementation } from '@reclaimprotocol/tls'
-import { webcryptoCrypto } from '@reclaimprotocol/tls/webcrypto'
+import { setCryptoImplementation } from '@joclaim/tls'
+import { webcryptoCrypto } from '@joclaim/tls/webcrypto'
 import { readFile } from 'fs/promises'
 import type { WebSocketServer } from 'ws'
 import '#src/server/utils/config-env.ts'

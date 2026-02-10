@@ -1,4 +1,4 @@
-import { asciiToUint8Array, concatenateUint8Arrays } from '@reclaimprotocol/tls'
+import { asciiToUint8Array, concatenateUint8Arrays } from '@joclaim/tls'
 import type { IncomingHttpHeaders } from 'http'
 
 import type { ArraySlice, Transcript } from '#src/types/index.ts'

@@ -1,11 +1,11 @@
-import '#src/external-rpc/jsc-polyfills/index.ts'
+import '#src/external-rpc/jsc-polyfills/index.js'
 1 // done to avoid eslint rule
 
 import { setCryptoImplementation } from '@joclaim/tls'
 import { pureJsCrypto } from '@joclaim/tls/purejs-crypto'
 
-import * as AttestorRPCImport from '#src/external-rpc/index.ts'
-import { makeLogger } from '#src/utils/logger.ts'
+import * as AttestorRPCImport from '#src/external-rpc/index.js'
+import { makeLogger } from '#src/utils/logger.js'
 
 declare global {
 	/**

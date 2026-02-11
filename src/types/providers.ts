@@ -1,9 +1,9 @@
 import type { TLSConnectionOptions } from '@joclaim/tls'
 
-import type { AttestorVersion, ProviderClaimData } from '#src/proto/api.ts'
-import type { ArraySlice, Logger, RedactedOrHashedArraySlice } from '#src/types/general.ts'
-import type { ProvidersConfig } from '#src/types/providers.gen.ts'
-import type { Transcript } from '#src/types/tunnel.ts'
+import type { AttestorVersion, ProviderClaimData } from '#src/proto/api.js'
+import type { ArraySlice, Logger, RedactedOrHashedArraySlice } from '#src/types/general.js'
+import type { ProvidersConfig } from '#src/types/providers.gen.js'
+import type { Transcript } from '#src/types/tunnel.js'
 
 export type AttestorData = {
 	id: string

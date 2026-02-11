@@ -2,19 +2,19 @@ import assert from 'assert'
 import { describe, it } from 'node:test'
 import { deserialize, serialize } from 'v8'
 
-import { PROVIDER_CTX } from '#src/config/index.ts'
-import httpProvider from '#src/providers/http/index.ts'
+import { PROVIDER_CTX } from '#src/config/index.js'
+import httpProvider from '#src/providers/http/index.js'
 import {
 	extractHTMLElement, extractHTMLElements,
 	extractJSONValueIndex, extractJSONValueIndexes,
 	makeRegex,
 	matchRedactedStrings,
-} from '#src/providers/http/utils.ts'
-import { providers } from '#src/providers/index.ts'
-import { assertValidateProviderParams } from '#src/server/utils/validation.ts'
-import { TEST_RES_CHUNKED_PARTIAL_BODY } from '#src/tests/utils.ts'
-import type { ProviderParams, Transcript } from '#src/types/index.ts'
-import { getBlocksToReveal, getProviderValue, hashProviderParams, logger, strToUint8Array, uint8ArrayToStr } from '#src/utils/index.ts'
+} from '#src/providers/http/utils.js'
+import { providers } from '#src/providers/index.js'
+import { assertValidateProviderParams } from '#src/server/utils/validation.js'
+import { TEST_RES_CHUNKED_PARTIAL_BODY } from '#src/tests/utils.js'
+import type { ProviderParams, Transcript } from '#src/types/index.js'
+import { getBlocksToReveal, getProviderValue, hashProviderParams, logger, strToUint8Array, uint8ArrayToStr } from '#src/utils/index.js'
 
 const ctx = PROVIDER_CTX
 

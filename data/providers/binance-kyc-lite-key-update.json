@@ -1,0 +1,80 @@
+{
+  "id": "binance-kyc-lite-key-update-001",
+  "providerId": "binance-kyc-lite-key-update",
+  "httpProviderId": "binance-kyc-lite-key-update",
+  "name": "Binance KYC Status (Lite/Key-Update)",
+  "description": "Name, Surname, DOB, Status - via lite endpoint, key-update mode",
+  "logoUrl": "https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/binance.com-00a58378-085e-4a47-b651-1967548a06b3.png",
+  "loginUrl": "https://accounts.binance.com/en/login",
+  "geoLocation": "PT",
+  "injectionType": "MSWJS",
+  "disableRequestReplay": true,
+  "verificationType": "WITNESS",
+  "requestData": [
+    {
+      "url": "https://www.binance.com/bapi/kyc/v2/private/certificate/user-kyc/current-kyc-status-lite",
+      "expectedPageUrl": "",
+      "urlType": "TEMPLATE",
+      "method": "POST",
+      "writeRedactionMode": "key-update",
+      "responseMatches": [
+        {
+          "type": "contains",
+          "value": "\"currentKycLevelStatus\":\"{{KYC_status}}\"",
+          "invert": false
+        },
+        {
+          "type": "contains",
+          "value": "\"lastName\":\"{{Surname}}\"",
+          "invert": false
+        },
+        {
+          "type": "contains",
+          "value": "\"dob\":\"{{DOB}}\"",
+          "invert": false
+        },
+        {
+          "type": "contains",
+          "value": "\"firstName\":\"{{Name}}\"",
+          "invert": false
+        }
+      ],
+      "responseRedactions": [
+        {
+          "jsonPath": "$.data.currentKycLevelStatus"
+        },
+        {
+          "jsonPath": "$.data.fillInfo.lastName"
+        },
+        {
+          "jsonPath": "$.data.fillInfo.dob"
+        },
+        {
+          "jsonPath": "$.data.fillInfo.firstName"
+        }
+      ],
+      "bodySniff": {
+        "enabled": false,
+        "template": null
+      },
+      "responseVariables": [
+        "KYC_status",
+        "Surname",
+        "DOB",
+        "Name"
+      ]
+    }
+  ],
+  "useIncognitoWebview": false,
+  "customInjection": "",
+  "userAgent": {
+    "ios": "",
+    "android": ""
+  },
+  "metadata": {},
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  }
+}

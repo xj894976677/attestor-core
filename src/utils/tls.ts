@@ -1,7 +1,7 @@
 import type { CipherSuite, TLSConnectionOptions } from '@joclaim/tls'
 import { SUPPORTED_NAMED_CURVES } from '@joclaim/tls'
 
-import { detectEnvironment } from '#src/utils/env.ts'
+import { detectEnvironment } from '#src/utils/env.js'
 
 // we only support the following cipher suites
 // for ZK proof generation

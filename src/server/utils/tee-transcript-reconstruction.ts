@@ -2,11 +2,11 @@
  * TLS Transcript Reconstruction from TEE data
  */
 
-import type { CertificateInfo } from '#src/proto/tee-bundle.ts'
-import type { TeeBundleData } from '#src/server/utils/tee-verification.ts'
-import type { Logger } from '#src/types/general.ts'
-import { AttestorError } from '#src/utils/error.ts'
-import { REDACTION_CHAR_CODE } from '#src/utils/index.ts'
+import type { CertificateInfo } from '#src/proto/tee-bundle.js'
+import type { TeeBundleData } from '#src/server/utils/tee-verification.js'
+import type { Logger } from '#src/types/general.js'
+import { AttestorError } from '#src/utils/error.js'
+import { REDACTION_CHAR_CODE } from '#src/utils/index.js'
 
 // Types specific to transcript reconstruction
 export interface TeeTranscriptData {
@@ -136,7 +136,7 @@ async function reconstructConsolidatedResponse(bundleData: TeeBundleData, logger
 	// Apply OPRF replacements BEFORE trimming leading asterisks
 	if(oprfResults && oprfResults.length > 0) {
 		logger.info(`Applying ${oprfResults.length} OPRF replacements before trimming`)
-		const { replaceOprfRanges } = await import('#src/server/utils/tee-oprf-verification.ts')
+		const { replaceOprfRanges } = await import('#src/server/utils/tee-oprf-verification.js')
 		processedResponse = replaceOprfRanges(processedResponse, oprfResults, logger)
 	}
 

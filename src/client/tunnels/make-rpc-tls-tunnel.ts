@@ -1,11 +1,11 @@
 import type { TLSConnectionOptions } from '@joclaim/tls'
 import { concatenateUint8Arrays, makeTLSClient } from '@joclaim/tls'
 
-import { makeRpcTcpTunnel } from '#src/client/tunnels/make-rpc-tcp-tunnel.ts'
-import { DEFAULT_HTTPS_PORT } from '#src/config/index.ts'
-import type { CreateTunnelRequest, RPCMessage } from '#src/proto/api.ts'
-import type { CompleteTLSPacket, IAttestorClient, Logger, MakeTunnelFn, Transcript, Tunnel } from '#src/types/index.ts'
-import { generateRpcMessageId, generateTunnelId } from '#src/utils/index.ts'
+import { makeRpcTcpTunnel } from '#src/client/tunnels/make-rpc-tcp-tunnel.js'
+import { DEFAULT_HTTPS_PORT } from '#src/config/index.js'
+import type { CreateTunnelRequest, RPCMessage } from '#src/proto/api.js'
+import type { CompleteTLSPacket, IAttestorClient, Logger, MakeTunnelFn, Transcript, Tunnel } from '#src/types/index.js'
+import { generateRpcMessageId, generateTunnelId } from '#src/utils/index.js'
 
 type ExtraTLSOptions = {
 	request: Partial<CreateTunnelRequest>

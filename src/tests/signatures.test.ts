@@ -2,8 +2,8 @@ import { utils, Wallet } from 'ethers'
 import assert from 'node:assert'
 import { describe, it } from 'node:test'
 
-import { ServiceSignatureType } from '#src/proto/api.ts'
-import { SIGNATURES } from '#src/utils/signatures/index.ts'
+import { ServiceSignatureType } from '#src/proto/api.js'
+import { SIGNATURES } from '#src/utils/signatures/index.js'
 
 const ALGS = [
 	{

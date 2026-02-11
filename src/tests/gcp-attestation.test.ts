@@ -8,10 +8,10 @@ import { describe, it } from 'node:test'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 
-import { VerificationBundle } from '#src/proto/tee-bundle.ts'
-import { validateGcpAttestationAndExtractKey } from '#src/server/utils/gcp-attestation.ts'
-import { verifyTeeBundle } from '#src/server/utils/tee-verification.ts'
-import { logger } from '#src/utils/logger.ts'
+import { VerificationBundle } from '#src/proto/tee-bundle.js'
+import { validateGcpAttestationAndExtractKey } from '#src/server/utils/gcp-attestation.js'
+import { verifyTeeBundle } from '#src/server/utils/tee-verification.js'
+import { logger } from '#src/utils/logger.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -143,7 +143,7 @@ describe('GCP Attestation Tests', () => {
 		const maxAgeMs = 10 * 60 * 1000 // 10 minutes
 
 		// Decode payloads to check timestamps
-		const { KOutputPayload, TOutputPayload } = await import('#src/proto/tee-bundle.ts')
+		const { KOutputPayload, TOutputPayload } = await import('#src/proto/tee-bundle.js')
 		const kPayload = KOutputPayload.decode(bundle.teekSigned!.body)
 		const tPayload = TOutputPayload.decode(bundle.teetSigned!.body)
 

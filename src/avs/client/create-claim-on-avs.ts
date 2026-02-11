@@ -1,14 +1,14 @@
 import { ethers, Wallet } from 'ethers'
 
-import { CHAIN_CONFIGS, SELECTED_CHAIN_ID } from '#src/avs/config.ts'
-import type { IReclaimServiceManager, NewTaskCreatedEventObject, TaskCompletedEventObject } from '#src/avs/contracts/ReclaimServiceManager.ts'
-import type { CreateClaimOnAvsOpts } from '#src/avs/types/index.ts'
-import { initialiseContracts } from '#src/avs/utils/contracts.ts'
-import { createNewClaimRequestOnChain, signClaimRequest } from '#src/avs/utils/tasks.ts'
-import { createClaimOnAttestor as _createClaimOnAttestor, getAttestorClientFromPool } from '#src/client/index.ts'
-import type { ClaimRequestData, ClaimTunnelResponse, ProviderClaimData } from '#src/proto/api.ts'
-import type { ProviderName } from '#src/types/index.ts'
-import { AttestorError, canonicalStringify, getIdentifierFromClaimInfo, logger as LOGGER, unixTimestampSeconds } from '#src/utils/index.ts'
+import { CHAIN_CONFIGS, SELECTED_CHAIN_ID } from '#src/avs/config.js'
+import type { IReclaimServiceManager, NewTaskCreatedEventObject, TaskCompletedEventObject } from '#src/avs/contracts/ReclaimServiceManager.js'
+import type { CreateClaimOnAvsOpts } from '#src/avs/types/index.js'
+import { initialiseContracts } from '#src/avs/utils/contracts.js'
+import { createNewClaimRequestOnChain, signClaimRequest } from '#src/avs/utils/tasks.js'
+import { createClaimOnAttestor as _createClaimOnAttestor, getAttestorClientFromPool } from '#src/client/index.js'
+import type { ClaimRequestData, ClaimTunnelResponse, ProviderClaimData } from '#src/proto/api.js'
+import type { ProviderName } from '#src/types/index.js'
+import { AttestorError, canonicalStringify, getIdentifierFromClaimInfo, logger as LOGGER, unixTimestampSeconds } from '#src/utils/index.js'
 
 const EMPTY_CLAIM_USER_ID = ethers.utils.hexlify(new Uint8Array(32))
 

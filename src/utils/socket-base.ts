@@ -1,10 +1,10 @@
 import type { WebSocket as WSWebSocket } from 'ws'
 
-import { wsMessageHandler } from '#src/client/utils/message-handler.ts'
-import type { InitRequest, RPCMessage } from '#src/proto/api.ts'
-import { RPCMessages } from '#src/proto/api.ts'
-import type { IAttestorSocket, Logger, RPCEvent, RPCEventMap } from '#src/types/index.ts'
-import { AttestorError, makeRpcEvent, packRpcMessages } from '#src/utils/index.ts'
+import { wsMessageHandler } from '#src/client/utils/message-handler.js'
+import type { InitRequest, RPCMessage } from '#src/proto/api.js'
+import { RPCMessages } from '#src/proto/api.js'
+import type { IAttestorSocket, Logger, RPCEvent, RPCEventMap } from '#src/types/index.js'
+import { AttestorError, makeRpcEvent, packRpcMessages } from '#src/utils/index.js'
 
 /**
  * Common AttestorSocket class used on the client & server side as the

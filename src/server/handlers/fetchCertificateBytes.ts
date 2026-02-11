@@ -1,8 +1,8 @@
 import { concatenateUint8Arrays, loadX509FromPem } from '@joclaim/tls'
 
-import { CERT_ALLOWED_MIMETYPES, MAX_CERT_SIZE_BYTES } from '#src/config/index.ts'
-import type { RPCHandler } from '#src/types/handlers.ts'
-import { AttestorError } from '#src/utils/error.ts'
+import { CERT_ALLOWED_MIMETYPES, MAX_CERT_SIZE_BYTES } from '#src/config/index.js'
+import type { RPCHandler } from '#src/types/handlers.js'
+import { AttestorError } from '#src/utils/error.js'
 
 export const fetchCertificateBytes: RPCHandler<'fetchCertificateBytes'> = async(
 	{ url },

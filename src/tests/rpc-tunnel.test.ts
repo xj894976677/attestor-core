@@ -2,13 +2,13 @@ import assert from 'assert'
 import { afterEach, beforeEach, describe, it } from 'node:test'
 import type { TLSSocket } from 'tls'
 
-import { AttestorClient } from '#src/client/index.ts'
-import { makeRpcTcpTunnel } from '#src/client/tunnels/make-rpc-tcp-tunnel.ts'
-import { makeRpcTlsTunnel } from '#src/client/tunnels/make-rpc-tls-tunnel.ts'
-import { describeWithServer } from '#src/tests/describe-with-server.ts'
-import { delay } from '#src/tests/utils.ts'
-import type { AttestorError } from '#src/utils/index.ts'
-import { logger } from '#src/utils/index.ts'
+import { AttestorClient } from '#src/client/index.js'
+import { makeRpcTcpTunnel } from '#src/client/tunnels/make-rpc-tcp-tunnel.js'
+import { makeRpcTlsTunnel } from '#src/client/tunnels/make-rpc-tls-tunnel.js'
+import { describeWithServer } from '#src/tests/describe-with-server.js'
+import { delay } from '#src/tests/utils.js'
+import type { AttestorError } from '#src/utils/index.js'
+import { logger } from '#src/utils/index.js'
 
 describeWithServer('RPC Tunnel', opts => {
 

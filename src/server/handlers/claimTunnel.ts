@@ -1,10 +1,10 @@
-import { MAX_CLAIM_TIMESTAMP_DIFF_S } from '#src/config/index.ts'
-import { ClaimTunnelResponse } from '#src/proto/api.ts'
-import { getApm } from '#src/server/utils/apm.ts'
-import { assertTranscriptsMatch, assertValidClaimRequest } from '#src/server/utils/assert-valid-claim-request.ts'
-import { getAttestorAddress, signAsAttestor } from '#src/server/utils/generics.ts'
-import type { RPCHandler } from '#src/types/index.ts'
-import { AttestorError, createSignDataForClaim, getIdentifierFromClaimInfo, unixTimestampSeconds } from '#src/utils/index.ts'
+import { MAX_CLAIM_TIMESTAMP_DIFF_S } from '#src/config/index.js'
+import { ClaimTunnelResponse } from '#src/proto/api.js'
+import { getApm } from '#src/server/utils/apm.js'
+import { assertTranscriptsMatch, assertValidClaimRequest } from '#src/server/utils/assert-valid-claim-request.js'
+import { getAttestorAddress, signAsAttestor } from '#src/server/utils/generics.js'
+import type { RPCHandler } from '#src/types/index.js'
+import { AttestorError, createSignDataForClaim, getIdentifierFromClaimInfo, unixTimestampSeconds } from '#src/utils/index.js'
 
 export const claimTunnel: RPCHandler<'claimTunnel'> = async(
 	claimRequest,

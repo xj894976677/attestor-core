@@ -1,11 +1,11 @@
 // eslint-disable-next-line simple-import-sort/imports
-import '#src/external-rpc/jsc-polyfills/index.ts'
+import '#src/external-rpc/jsc-polyfills/index.js'
 
 import { setCryptoImplementation } from '@joclaim/tls'
 import { pureJsCrypto } from '@joclaim/tls/purejs-crypto'
 
-import { handleIncomingMessage } from '#src/external-rpc/index.ts'
-import { B64_JSON_REVIVER } from '#src/utils/b64-json.ts'
+import { handleIncomingMessage } from '#src/external-rpc/index.js'
+import { B64_JSON_REVIVER } from '#src/utils/b64-json.js'
 
 function readIncomingMsg(): JSCIncomingMsg {
 	const cmd = readline()

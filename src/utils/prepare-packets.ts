@@ -2,12 +2,12 @@ import type { CipherSuite, TLSPacketContext } from '@joclaim/tls'
 import { concatenateUint8Arrays, crypto } from '@joclaim/tls'
 
 import type {
-	ClaimTunnelRequest_TranscriptMessage as TranscriptMessage } from '#src/proto/api.ts'
+	ClaimTunnelRequest_TranscriptMessage as TranscriptMessage } from '#src/proto/api.js'
 import {
 	TranscriptMessageSenderType
-} from '#src/proto/api.ts'
-import type { CompleteTLSPacket, Logger, MessageRevealInfo, PrepareZKProofsBaseOpts, Transcript } from '#src/types/index.ts'
-import { makeZkProofGenerator } from '#src/utils/zk.ts'
+} from '#src/proto/api.js'
+import type { CompleteTLSPacket, Logger, MessageRevealInfo, PrepareZKProofsBaseOpts, Transcript } from '#src/types/index.js'
+import { makeZkProofGenerator } from '#src/utils/zk.js'
 
 export type PreparePacketsForRevealOpts = {
 	cipherSuite: CipherSuite

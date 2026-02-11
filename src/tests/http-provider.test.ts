@@ -1,10 +1,10 @@
 import assert from 'node:assert'
 import { afterEach, it } from 'node:test'
 
-import { createClaimOnAttestor } from '#src/client/index.ts'
-import { describeWithServer } from '#src/tests/describe-with-server.ts'
-import { getFirstTOprfBlock, verifyNoDirectRevealLeaks } from '#src/tests/utils.ts'
-import { binaryHashToStr } from '#src/utils/index.ts'
+import { createClaimOnAttestor } from '#src/client/index.js'
+import { describeWithServer } from '#src/tests/describe-with-server.js'
+import { getFirstTOprfBlock, verifyNoDirectRevealLeaks } from '#src/tests/utils.js'
+import { binaryHashToStr } from '#src/utils/index.js'
 
 describeWithServer('HTTP Provider', opts => {
 

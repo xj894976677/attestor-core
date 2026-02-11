@@ -12,11 +12,11 @@ const rslt = await esbuild.build({
 	metafile: true, // Enable metafile generation
 	treeShaking: true,
 	alias: {
-		'crypto': '#src/scripts/fallbacks/crypto.ts',
-		'koffi': '#src/scripts/fallbacks/empty.ts',
-		'ip-cidr': '#src/scripts/fallbacks/empty.ts',
-		'@joclaim/snarkjs': '#src/scripts/fallbacks/snarkjs.ts',
-		're2': '#src/scripts/fallbacks/re2.ts',
+		'crypto': '#src/scripts/fallbacks/crypto.js',
+		'koffi': '#src/scripts/fallbacks/empty.js',
+		'ip-cidr': '#src/scripts/fallbacks/empty.js',
+		'@joclaim/snarkjs': '#src/scripts/fallbacks/snarkjs.js',
+		're2': '#src/scripts/fallbacks/re2.js',
 	},
 	external: [
 		'dotenv',

@@ -1,14 +1,14 @@
 import { after, afterEach, before, beforeEach, describe } from 'node:test'
 import type { WebSocket, WebSocketServer } from 'ws'
 
-import { AttestorClient } from '#src/client/utils/client-socket.ts'
-import { WS_PATHNAME } from '#src/config/index.ts'
-import { createServer } from '#src/server/index.ts'
-import { createMockServer } from '#src/tests/mock-provider-server.ts'
-import { SPY_PREPARER } from '#src/tests/mocks.ts'
-import { getRandomPort, randomPrivateKey } from '#src/tests/utils.ts'
-import type { IAttestorServerSocket } from '#src/types/index.ts'
-import { logger } from '#src/utils/index.ts'
+import { AttestorClient } from '#src/client/utils/client-socket.js'
+import { WS_PATHNAME } from '#src/config/index.js'
+import { createServer } from '#src/server/index.js'
+import { createMockServer } from '#src/tests/mock-provider-server.js'
+import { SPY_PREPARER } from '#src/tests/mocks.js'
+import { getRandomPort, randomPrivateKey } from '#src/tests/utils.js'
+import type { IAttestorServerSocket } from '#src/types/index.js'
+import { logger } from '#src/utils/index.js'
 
 type ServerOpts = {
 	/**

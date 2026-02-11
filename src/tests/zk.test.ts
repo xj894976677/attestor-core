@@ -3,13 +3,13 @@ import { crypto, encryptWrappedRecord, SUPPORTED_CIPHER_SUITE_MAP } from '@jocla
 import type { ZKEngine } from '@joclaim/zk-symmetric-crypto'
 import assert from 'node:assert'
 import { describe, it } from 'node:test'
-import '#src/server/utils/config-env.ts'
+import '#src/server/utils/config-env.js'
 
-import { TOPRF_DOMAIN_SEPARATOR } from '#src/config/index.ts'
-import type { MessageReveal_ZKProof as ZKProof } from '#src/proto/api.ts'
-import { ZKProofEngine } from '#src/proto/api.ts'
-import { toprf } from '#src/server/handlers/toprf.ts'
-import type { CompleteTLSPacket, MessageRevealInfo, RedactedOrHashedArraySlice, TOPRFProofParams } from '#src/types/index.ts'
+import { TOPRF_DOMAIN_SEPARATOR } from '#src/config/index.js'
+import type { MessageReveal_ZKProof as ZKProof } from '#src/proto/api.js'
+import { ZKProofEngine } from '#src/proto/api.js'
+import { toprf } from '#src/server/handlers/toprf.js'
+import type { CompleteTLSPacket, MessageRevealInfo, RedactedOrHashedArraySlice, TOPRFProofParams } from '#src/types/index.js'
 import {
 	getBlocksToReveal,
 	isTls13Suite,
@@ -21,7 +21,7 @@ import {
 	strToUint8Array,
 	uint8ArrayToStr,
 	verifyZkPacket
-} from '#src/utils/index.ts'
+} from '#src/utils/index.js'
 
 const ZK_CIPHER_SUITES: CipherSuite[] = [
 	'TLS_CHACHA20_POLY1305_SHA256',

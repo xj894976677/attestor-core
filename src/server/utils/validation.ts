@@ -1,9 +1,9 @@
 import type { ValidateFunction } from 'ajv'
 import { Ajv } from 'ajv'
 
-import type { ProviderName, ProviderParams } from '#src/types/index.ts'
-import { PROVIDER_SCHEMAS } from '#src/types/providers.gen.ts'
-import { AttestorError } from '#src/utils/error.ts'
+import type { ProviderName, ProviderParams } from '#src/types/index.js'
+import { PROVIDER_SCHEMAS } from '#src/types/providers.gen.js'
+import { AttestorError } from '#src/utils/error.js'
 
 const PROVIDER_VALIDATOR_MAP: { [N in ProviderName]?: ValidateFunction } = {}
 

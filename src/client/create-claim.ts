@@ -1,11 +1,11 @@
 import type { TLSConnectionOptions, TLSPacketContext } from '@joclaim/tls'
 import { asciiToUint8Array } from '@joclaim/tls'
 
-import { makeRpcTlsTunnel } from '#src/client/tunnels/make-rpc-tls-tunnel.ts'
-import { getAttestorClientFromPool } from '#src/client/utils/attestor-pool.ts'
-import { DEFAULT_HTTPS_PORT, PROVIDER_CTX, TOPRF_DOMAIN_SEPARATOR } from '#src/config/index.ts'
-import { ClaimTunnelRequest, ZKProofEngine } from '#src/proto/api.ts'
-import { providers } from '#src/providers/index.ts'
+import { makeRpcTlsTunnel } from '#src/client/tunnels/make-rpc-tls-tunnel.js'
+import { getAttestorClientFromPool } from '#src/client/utils/attestor-pool.js'
+import { DEFAULT_HTTPS_PORT, PROVIDER_CTX, TOPRF_DOMAIN_SEPARATOR } from '#src/config/index.js'
+import { ClaimTunnelRequest, ZKProofEngine } from '#src/proto/api.js'
+import { providers } from '#src/providers/index.js'
 import type {
 	CreateClaimOnAttestorOpts,
 	IAttestorClient,
@@ -13,9 +13,9 @@ import type {
 	ProviderName,
 	TOPRFProofParams,
 	Transcript
-} from '#src/types/index.ts'
+} from '#src/types/index.js'
 import type {
-	RevealedSlices } from '#src/utils/index.ts'
+	RevealedSlices } from '#src/utils/index.js'
 import {
 	AttestorError,
 	binaryHashToStr,
@@ -32,10 +32,10 @@ import {
 	redactSlices,
 	uint8ArrayToStr,
 	unixTimestampSeconds
-} from '#src/utils/index.ts'
-import { executeWithRetries } from '#src/utils/retries.ts'
-import { SIGNATURES } from '#src/utils/signatures/index.ts'
-import { getDefaultTlsOptions } from '#src/utils/tls.ts'
+} from '#src/utils/index.js'
+import { executeWithRetries } from '#src/utils/retries.js'
+import { SIGNATURES } from '#src/utils/signatures/index.js'
+import { getDefaultTlsOptions } from '#src/utils/tls.js'
 
 type ServerAppDataPacket = {
 	plaintext: Uint8Array

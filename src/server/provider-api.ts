@@ -1,6 +1,6 @@
 import type { IncomingMessage, ServerResponse } from 'http'
-import { getProviderList, getProviderById, saveProvider, deleteProvider } from '#src/server/provider-store.ts'
-import { logger as LOGGER } from '#src/utils/index.ts'
+import { getProviderList, getProviderById, saveProvider, deleteProvider } from '#src/server/provider-store.js'
+import { logger as LOGGER } from '#src/utils/index.js'
 
 const logger = LOGGER.child({ module: 'provider-api' })
 

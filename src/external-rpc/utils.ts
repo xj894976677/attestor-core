@@ -1,8 +1,8 @@
-import { WS_PATHNAME } from '#src/config/index.ts'
-import { EventBus } from '#src/external-rpc/event-bus.ts'
-import type { ExternalRPCAppClient, ExternalRPCIncomingMsg, ExternalRPCOutgoingMsg, ExternalRPCRequest, ExternalRPCResponse } from '#src/external-rpc/types.ts'
-import { B64_JSON_REPLACER } from '#src/utils/b64-json.ts'
-import { AttestorError } from '#src/utils/error.ts'
+import { WS_PATHNAME } from '#src/config/index.js'
+import { EventBus } from '#src/external-rpc/event-bus.js'
+import type { ExternalRPCAppClient, ExternalRPCIncomingMsg, ExternalRPCOutgoingMsg, ExternalRPCRequest, ExternalRPCResponse } from '#src/external-rpc/types.js'
+import { B64_JSON_REPLACER } from '#src/utils/b64-json.js'
+import { AttestorError } from '#src/utils/error.js'
 
 export const RPC_MSG_BRIDGE = new EventBus<ExternalRPCIncomingMsg>()
 

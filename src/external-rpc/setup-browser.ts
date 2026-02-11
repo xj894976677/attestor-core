@@ -1,9 +1,9 @@
 import { setCryptoImplementation } from '@joclaim/tls'
 import { webcryptoCrypto } from '@joclaim/tls/webcrypto'
 
-import { handleIncomingMessage } from '#src/external-rpc/handle-incoming-msg.ts'
-import { getWsApiUrlFromBaseUrl } from '#src/external-rpc/utils.ts'
-import { logger, makeLogger } from '#src/utils/index.ts'
+import { handleIncomingMessage } from '#src/external-rpc/handle-incoming-msg.js'
+import { getWsApiUrlFromBaseUrl } from '#src/external-rpc/utils.js'
+import { logger, makeLogger } from '#src/utils/index.js'
 
 makeLogger(true)
 
@@ -39,4 +39,4 @@ export function setupWindowRpc(baseUrl?: string, channel = 'attestor-core') {
 	logger.info({ defaultUrl: getWsApiUrlFromBaseUrl() }, 'window RPC setup')
 }
 
-export * from '#src/index.ts'
+export * from '#src/index.js'

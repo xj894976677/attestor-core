@@ -1,9 +1,9 @@
 import CIDR from 'ip-cidr'
 import type { Logger } from 'pino'
 
-import { BGP_WS_URL } from '#src/config/index.ts'
-import type { BGPAnnouncementOverlapData, BGPListener } from '#src/types/index.ts'
-import { makeWebSocket } from '#src/utils/ws.ts'
+import { BGP_WS_URL } from '#src/config/index.js'
+import type { BGPAnnouncementOverlapData, BGPListener } from '#src/types/index.js'
+import { makeWebSocket } from '#src/utils/ws.js'
 
 const ANNOUNCEMENT_OVERLAP = 'announcement-overlap'
 

@@ -1,7 +1,7 @@
 import { URL as WHATWG_URL } from 'whatwg-url'
 
-import { CloseEventPolyfill, ErrorEventPolyfill, EventPolyfill, MessageEventPolyfill } from '#src/external-rpc/jsc-polyfills/event.ts'
-import { RPCWebSocket } from '#src/external-rpc/jsc-polyfills/ws.ts'
+import { CloseEventPolyfill, ErrorEventPolyfill, EventPolyfill, MessageEventPolyfill } from '#src/external-rpc/jsc-polyfills/event.js'
+import { RPCWebSocket } from '#src/external-rpc/jsc-polyfills/ws.js'
 
 if(typeof globalThis.URL === 'undefined') {
 	globalThis.URL = WHATWG_URL

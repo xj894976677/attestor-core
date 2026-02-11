@@ -1,10 +1,10 @@
 import { ethers } from 'ethers'
 
-import type { RPCHandler } from '#src/types/index.ts'
-import { assertValidAuthRequest } from '#src/utils/auth.ts'
-import { getEnvVariable } from '#src/utils/env.ts'
-import { AttestorError } from '#src/utils/index.ts'
-import { SIGNATURES } from '#src/utils/signatures/index.ts'
+import type { RPCHandler } from '#src/types/index.js'
+import { assertValidAuthRequest } from '#src/utils/auth.js'
+import { getEnvVariable } from '#src/utils/env.js'
+import { AttestorError } from '#src/utils/index.js'
+import { SIGNATURES } from '#src/utils/signatures/index.js'
 
 const TOPRF_PUBLIC_KEY = getEnvVariable('TOPRF_PUBLIC_KEY')
 

@@ -3,8 +3,8 @@ import assert from 'node:assert'
 import type { Mock } from 'node:test'
 import { setTimeout } from 'node:timers/promises'
 
-import type { ClaimTunnelRequest } from '#src/proto/api.ts'
-import { SPY_PREPARER } from '#src/tests/mocks.ts'
+import type { ClaimTunnelRequest } from '#src/proto/api.js'
+import { SPY_PREPARER } from '#src/tests/mocks.js'
 
 export const delay = setTimeout
 

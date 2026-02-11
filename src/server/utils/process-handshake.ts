@@ -17,10 +17,10 @@ import {
 	verifyCertificateSignature
 } from '@joclaim/tls'
 
-import type { ClaimTunnelRequest } from '#src/proto/api.ts'
-import { TranscriptMessageSenderType } from '#src/proto/api.ts'
-import type { Logger } from '#src/types/index.ts'
-import { decryptDirect } from '#src/utils/index.ts'
+import type { ClaimTunnelRequest } from '#src/proto/api.js'
+import { TranscriptMessageSenderType } from '#src/proto/api.js'
+import type { Logger } from '#src/types/index.js'
+import { decryptDirect } from '#src/utils/index.js'
 
 const RECORD_LENGTH_BYTES = 3
 

@@ -2,12 +2,12 @@ import { setCryptoImplementation } from '@joclaim/tls'
 import { webcryptoCrypto } from '@joclaim/tls/webcrypto'
 import { readFile } from 'fs/promises'
 import type { WebSocketServer } from 'ws'
-import '#src/server/utils/config-env.ts'
+import '#src/server/utils/config-env.js'
 
 import type {
 	ProviderName,
 	ProviderParams,
-	ProviderSecretParams } from '#src/index.ts'
+	ProviderSecretParams } from '#src/index.js'
 import {
 	API_SERVER_PORT,
 	createClaimOnAttestor,
@@ -16,11 +16,11 @@ import {
 	logger,
 	providers,
 	WS_PATHNAME,
-} from '#src/index.ts'
-import { getCliArgument } from '#src/scripts/utils.ts'
-import { createServer, decryptTranscript } from '#src/server/index.ts'
-import { assertValidateProviderParams } from '#src/server/utils/validation.ts'
-import { getEnvVariable } from '#src/utils/env.ts'
+} from '#src/index.js'
+import { getCliArgument } from '#src/scripts/utils.js'
+import { createServer, decryptTranscript } from '#src/server/index.js'
+import { assertValidateProviderParams } from '#src/server/utils/validation.js'
+import { getEnvVariable } from '#src/utils/env.js'
 
 setCryptoImplementation(webcryptoCrypto)
 

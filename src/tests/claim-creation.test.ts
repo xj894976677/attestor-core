@@ -4,13 +4,13 @@ import assert from 'node:assert'
 import { readFileSync } from 'node:fs'
 import { beforeEach, describe, it } from 'node:test'
 
-import type { AttestorClient } from '#src/client/index.ts'
-import { createClaimOnAttestor, getAttestorClientFromPool } from '#src/client/index.ts'
-import { ClaimTunnelRequest } from '#src/proto/api.ts'
-import { providers } from '#src/providers/index.ts'
-import { decryptTranscript } from '#src/server/index.ts'
-import { describeWithServer } from '#src/tests/describe-with-server.ts'
-import { getFirstTOprfBlock, verifyNoDirectRevealLeaks } from '#src/tests/utils.ts'
+import type { AttestorClient } from '#src/client/index.js'
+import { createClaimOnAttestor, getAttestorClientFromPool } from '#src/client/index.js'
+import { ClaimTunnelRequest } from '#src/proto/api.js'
+import { providers } from '#src/providers/index.js'
+import { decryptTranscript } from '#src/server/index.js'
+import { describeWithServer } from '#src/tests/describe-with-server.js'
+import { getFirstTOprfBlock, verifyNoDirectRevealLeaks } from '#src/tests/utils.js'
 import {
 	assertValidClaimSignatures,
 	AttestorError,
@@ -18,7 +18,7 @@ import {
 	extractApplicationDataFromTranscript,
 	logger,
 	uint8ArrayToStr
-} from '#src/utils/index.ts'
+} from '#src/utils/index.js'
 
 const TLS_VERSIONS: TLSProtocolVersion[] = [
 	'TLS1_3',

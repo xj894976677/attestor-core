@@ -9,10 +9,10 @@ import { describe, it } from 'node:test'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 
-import { KOutputPayload, TOutputPayload, VerificationBundle } from '#src/proto/tee-bundle.ts'
-import { reconstructTlsTranscript } from '#src/server/utils/tee-transcript-reconstruction.ts'
-import { logger as LOGGER, logger } from '#src/utils/logger.ts'
-import { makeDefaultOPRFOperator } from '#src/utils/zk.ts'
+import { KOutputPayload, TOutputPayload, VerificationBundle } from '#src/proto/tee-bundle.js'
+import { reconstructTlsTranscript } from '#src/server/utils/tee-transcript-reconstruction.js'
+import { logger as LOGGER, logger } from '#src/utils/logger.js'
+import { makeDefaultOPRFOperator } from '#src/utils/zk.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)

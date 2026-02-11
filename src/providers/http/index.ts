@@ -2,8 +2,8 @@ import type { TLSConnectionOptions } from '@joclaim/tls'
 import { areUint8ArraysEqual, concatenateUint8Arrays, uint8ArrayToBinaryStr } from '@joclaim/tls'
 import { utils } from 'ethers'
 
-import { DEFAULT_HTTPS_PORT, RECLAIM_USER_AGENT } from '#src/config/index.ts'
-import { AttestorVersion } from '#src/proto/api.ts'
+import { DEFAULT_HTTPS_PORT, RECLAIM_USER_AGENT } from '#src/config/index.js'
+import { AttestorVersion } from '#src/proto/api.js'
 import {
 	buildHeaders,
 	convertResponsePosToAbsolutePos,
@@ -13,8 +13,8 @@ import {
 	makeRegex,
 	matchRedactedStrings,
 	parseHttpResponse,
-} from '#src/providers/http/utils.ts'
-import { isValidProxySessionId } from '#src/server/utils/proxy-session.ts'
+} from '#src/providers/http/utils.js'
+import { isValidProxySessionId } from '#src/server/utils/proxy-session.js'
 import type {
 	ArraySlice,
 	Provider,
@@ -22,7 +22,7 @@ import type {
 	ProviderParams,
 	ProviderSecretParams,
 	RedactedOrHashedArraySlice
-} from '#src/types/index.ts'
+} from '#src/types/index.js'
 import {
 	findIndexInUint8Array,
 	getHttpRequestDataFromTranscript,
@@ -30,7 +30,7 @@ import {
 	REDACTION_CHAR_CODE,
 	strToUint8Array,
 	uint8ArrayToStr,
-} from '#src/utils/index.ts'
+} from '#src/utils/index.js'
 
 const { base64 } = utils
 

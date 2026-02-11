@@ -1,6 +1,6 @@
 import type { Logger as TLSLogger, TLSPacketContext, TLSProtocolVersion } from '@joclaim/tls'
 
-import type { TOPRFProofParams } from '#src/types/zk.ts'
+import type { TOPRFProofParams } from '#src/types/zk.js'
 
 /**
  * Represents a slice of any array or string

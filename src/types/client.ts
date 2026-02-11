@@ -1,11 +1,11 @@
 import type { IncomingMessage } from 'http'
 import type { WebSocket as WSWebSocket } from 'ws'
 
-import type { AuthenticationRequest, InitRequest, InitResponse, RPCMessage, RPCMessages, ServiceSignatureType, TunnelMessage } from '#src/proto/api.ts'
-import type { BGPListener } from '#src/types/bgp.ts'
-import type { Logger } from '#src/types/general.ts'
-import type { RPCEvent, RPCEventMap, RPCEventType, RPCRequestData, RPCResponseData, RPCType } from '#src/types/rpc.ts'
-import type { TCPSocketProperties, Tunnel } from '#src/types/tunnel.ts'
+import type { AuthenticationRequest, InitRequest, InitResponse, RPCMessage, RPCMessages, ServiceSignatureType, TunnelMessage } from '#src/proto/api.js'
+import type { BGPListener } from '#src/types/bgp.js'
+import type { Logger } from '#src/types/general.js'
+import type { RPCEvent, RPCEventMap, RPCEventType, RPCRequestData, RPCResponseData, RPCType } from '#src/types/rpc.js'
+import type { TCPSocketProperties, Tunnel } from '#src/types/tunnel.js'
 
 /**
  * Any WebSocket implementation -- either the native

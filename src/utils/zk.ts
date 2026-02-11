@@ -27,15 +27,15 @@ import {
 import { makeSnarkJsZKOperator } from '@joclaim/zk-symmetric-crypto/snarkjs'
 import PQueue from 'p-queue'
 
-import { DEFAULT_REMOTE_FILE_FETCH_BASE_URL, DEFAULT_ZK_CONCURRENCY, TOPRF_DOMAIN_SEPARATOR } from '#src/config/index.ts'
-import type { MessageReveal_MessageRevealZk as ZKReveal, MessageReveal_TOPRFProof as TOPRFProof, MessageReveal_ZKProof as ZKProof } from '#src/proto/api.ts'
-import { ZKProofEngine } from '#src/proto/api.ts'
-import type { ArraySlice, CompleteTLSPacket, Logger, OPRFOperators, PrepareZKProofsBaseOpts, TOPRFProofParams, ZKOperators, ZKRevealInfo } from '#src/types/index.ts'
-import { detectEnvironment, getEnvVariable } from '#src/utils/env.ts'
-import { AttestorError } from '#src/utils/error.ts'
-import { getPureCiphertext, getRecordIV, getZkAlgorithmForCipherSuite, isTls13Suite, strToUint8Array } from '#src/utils/generics.ts'
-import { logger as LOGGER } from '#src/utils/logger.ts'
-import { binaryHashToStr, isFullyRedacted, isRedactionCongruent, REDACTION_CHAR_CODE } from '#src/utils/redactions.ts'
+import { DEFAULT_REMOTE_FILE_FETCH_BASE_URL, DEFAULT_ZK_CONCURRENCY, TOPRF_DOMAIN_SEPARATOR } from '#src/config/index.js'
+import type { MessageReveal_MessageRevealZk as ZKReveal, MessageReveal_TOPRFProof as TOPRFProof, MessageReveal_ZKProof as ZKProof } from '#src/proto/api.js'
+import { ZKProofEngine } from '#src/proto/api.js'
+import type { ArraySlice, CompleteTLSPacket, Logger, OPRFOperators, PrepareZKProofsBaseOpts, TOPRFProofParams, ZKOperators, ZKRevealInfo } from '#src/types/index.js'
+import { detectEnvironment, getEnvVariable } from '#src/utils/env.js'
+import { AttestorError } from '#src/utils/error.js'
+import { getPureCiphertext, getRecordIV, getZkAlgorithmForCipherSuite, isTls13Suite, strToUint8Array } from '#src/utils/generics.js'
+import { logger as LOGGER } from '#src/utils/logger.js'
+import { binaryHashToStr, isFullyRedacted, isRedactionCongruent, REDACTION_CHAR_CODE } from '#src/utils/redactions.js'
 
 type GenerateZKChunkProofOpts = {
 	key: Uint8Array

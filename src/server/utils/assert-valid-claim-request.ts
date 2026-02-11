@@ -8,16 +8,16 @@ import type {
 	InitRequest,
 	MessageReveal_MessageRevealDirect as MessageRevealDirect,
 	MessageReveal_MessageRevealZk as MessageRevealZk,
-	ProviderClaimInfo } from '#src/proto/api.ts'
+	ProviderClaimInfo } from '#src/proto/api.js'
 import {
 	ClaimTunnelRequest,
 	TranscriptMessageSenderType,
 	ZKProofEngine
-} from '#src/proto/api.ts'
-import { providers } from '#src/providers/index.ts'
-import { niceParseJsonObject } from '#src/server/utils/generics.ts'
-import { processHandshake } from '#src/server/utils/process-handshake.ts'
-import { assertValidateProviderParams } from '#src/server/utils/validation.ts'
+} from '#src/proto/api.js'
+import { providers } from '#src/providers/index.js'
+import { niceParseJsonObject } from '#src/server/utils/generics.js'
+import { processHandshake } from '#src/server/utils/process-handshake.js'
+import { assertValidateProviderParams } from '#src/server/utils/validation.js'
 import type {
 	IDecryptedTranscript, IDecryptedTranscriptMessage,
 	Logger,
@@ -25,13 +25,13 @@ import type {
 	ProviderName,
 	TCPSocketProperties,
 	Transcript,
-} from '#src/types/index.ts'
+} from '#src/types/index.js'
 import {
 	AttestorError,
 	canonicalStringify, decryptDirect,
 	extractApplicationDataFromTranscript,
 	hashProviderParams,	SIGNATURES,
-	verifyZkPacket } from '#src/utils/index.ts'
+	verifyZkPacket } from '#src/utils/index.js'
 
 /**
  * Asserts that the claim request is valid.

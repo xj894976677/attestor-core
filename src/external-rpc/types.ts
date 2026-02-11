@@ -1,11 +1,11 @@
 import type { OPRFOperator, ZKEngine, ZKOperator } from '@joclaim/zk-symmetric-crypto'
-import '#src/external-rpc/global.d.ts'
+import '#src/external-rpc/global.d.js'
 
-import type { TaskCompletedEventObject } from '#src/avs/contracts/ReclaimServiceManager.ts'
-import type { CreateClaimOnAvsOpts, CreateClaimOnAvsStep } from '#src/avs/types/index.ts'
-import type { CreateClaimOnMechainStep } from '#src/mechain/types/index.ts'
-import type { AuthenticationRequest } from '#src/proto/api.ts'
-import type { extractHTMLElement, extractJSONValueIndex } from '#src/providers/http/utils.ts'
+import type { TaskCompletedEventObject } from '#src/avs/contracts/ReclaimServiceManager.js'
+import type { CreateClaimOnAvsOpts, CreateClaimOnAvsStep } from '#src/avs/types/index.js'
+import type { CreateClaimOnMechainStep } from '#src/mechain/types/index.js'
+import type { AuthenticationRequest } from '#src/proto/api.js'
+import type { extractHTMLElement, extractJSONValueIndex } from '#src/providers/http/utils.js'
 import type {
 	AttestorData,
 	CompleteClaimData,
@@ -15,8 +15,8 @@ import type {
 	ProviderName,
 	ProviderParams,
 	ProviderSecretParams,
-} from '#src/types/index.ts'
-import type { HttpRequest, HttpResponse } from '#src/utils/index.ts'
+} from '#src/types/index.js'
+import type { HttpRequest, HttpResponse } from '#src/utils/index.js'
 
 type IdentifiedMessage = {
 	id: string

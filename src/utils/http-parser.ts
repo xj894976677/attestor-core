@@ -1,9 +1,9 @@
 import { asciiToUint8Array, concatenateUint8Arrays } from '@joclaim/tls'
 import type { IncomingHttpHeaders } from 'http'
 
-import type { ArraySlice, Transcript } from '#src/types/index.ts'
-import { findIndexInUint8Array, uint8ArrayToStr } from '#src/utils/generics.ts'
-import { REDACTION_CHAR_CODE } from '#src/utils/redactions.ts'
+import type { ArraySlice, Transcript } from '#src/types/index.js'
+import { findIndexInUint8Array, uint8ArrayToStr } from '#src/utils/generics.js'
+import { REDACTION_CHAR_CODE } from '#src/utils/redactions.js'
 
 export type HttpRequest = {
     method: string

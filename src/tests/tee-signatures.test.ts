@@ -12,7 +12,7 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-import { verifyTeeBundle } from '#src/server/utils/tee-verification.ts'
+import { verifyTeeBundle } from '#src/server/utils/tee-verification.js'
 
 // Mock logger for testing
 const mockLogger = {

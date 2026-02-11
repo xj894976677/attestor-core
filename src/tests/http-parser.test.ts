@@ -1,8 +1,8 @@
 import assert from 'node:assert'
 import { describe, it } from 'node:test'
 
-import { TEST_RES_BODY_CHUNKS, TEST_RES_CHUNKED_PARTIAL_BODY } from '#src/tests/utils.ts'
-import { makeHttpResponseParser, strToUint8Array, uint8ArrayToStr } from '#src/utils/index.ts'
+import { TEST_RES_BODY_CHUNKS, TEST_RES_CHUNKED_PARTIAL_BODY } from '#src/tests/utils.js'
+import { makeHttpResponseParser, strToUint8Array, uint8ArrayToStr } from '#src/utils/index.js'
 
 const MODES = ['complete', 'byte-by-byte'] as const
 

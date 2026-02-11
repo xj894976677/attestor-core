@@ -3,14 +3,14 @@ import assert from 'node:assert'
 import { after, before, describe, it } from 'node:test'
 import type { WebSocketServer } from 'ws'
 
-import { createClaimOnAttestor } from '#src/client/index.ts'
-import { WS_PATHNAME } from '#src/config/index.ts'
-import type { AuthenticationRequest } from '#src/proto/api.ts'
-import { providers } from '#src/providers/index.ts'
-import { createServer } from '#src/server/index.ts'
-import { createMockServer } from '#src/tests/mock-provider-server.ts'
-import { getRandomPort, randomPrivateKey } from '#src/tests/utils.ts'
-import { type AttestorError, createAuthRequest } from '#src/utils/index.ts'
+import { createClaimOnAttestor } from '#src/client/index.js'
+import { WS_PATHNAME } from '#src/config/index.js'
+import type { AuthenticationRequest } from '#src/proto/api.js'
+import { providers } from '#src/providers/index.js'
+import { createServer } from '#src/server/index.js'
+import { createMockServer } from '#src/tests/mock-provider-server.js'
+import { getRandomPort, randomPrivateKey } from '#src/tests/utils.js'
+import { type AttestorError, createAuthRequest } from '#src/utils/index.js'
 
 describe('Authentication Tests', () => {
 

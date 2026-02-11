@@ -11,7 +11,7 @@ import {
 	uint8ArrayToDataView } from '@joclaim/tls'
 import { REDACTION_CHAR_CODE } from '@joclaim/zk-symmetric-crypto'
 
-import { RPCMessage, RPCMessages } from '#src/proto/api.ts'
+import { RPCMessage, RPCMessages } from '#src/proto/api.js'
 import type {
 	CompleteTLSPacket,
 	IDecryptedTranscript, IDecryptedTranscriptMessage,
@@ -21,7 +21,7 @@ import type {
 	RPCEventType,
 	RPCType,
 	Transcript
-} from '#src/types/index.ts'
+} from '#src/types/index.js'
 
 const DEFAULT_REDACTION_DATA = new Uint8Array(4)
 	.fill(REDACTION_CHAR_CODE)

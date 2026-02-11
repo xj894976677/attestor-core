@@ -1,4 +1,4 @@
-import { ErrorCode, ErrorData } from '#src/proto/api.ts'
+import { ErrorCode, ErrorData } from '#src/proto/api.js'
 
 const PROTO_ERROR = ErrorData.fromJSON({})
 

@@ -5,11 +5,11 @@ import {
 	encryptWrappedRecord,
 	SUPPORTED_CIPHER_SUITE_MAP
 } from '@joclaim/tls'
-import { strToUint8Array } from 'src/utils/generics.ts'
+import { strToUint8Array } from '#src/utils/generics.js'
 
-import type { CompleteTLSPacket } from '#src/types/index.ts'
-import { logger } from '#src/utils/logger.ts'
-import { makeZkProofGenerator } from '#src/utils/zk.ts'
+import type { CompleteTLSPacket } from '#src/types/index.js'
+import { logger } from '#src/utils/logger.js'
+import { makeZkProofGenerator } from '#src/utils/zk.js'
 
 const ZK_CIPHER_SUITES: CipherSuite[] = [
 	'TLS_CHACHA20_POLY1305_SHA256',

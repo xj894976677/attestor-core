@@ -1,10 +1,10 @@
 import assert from 'node:assert'
 import { afterEach, beforeEach, describe, it, mock } from 'node:test'
 
-import { delay } from '#src/tests/utils.ts'
-import type { BGPListener } from '#src/types/index.ts'
+import { delay } from '#src/tests/utils.js'
+import type { BGPListener } from '#src/types/index.js'
 
-mock.module('#src/utils/ws.ts', {
+mock.module('#src/utils/ws.js', {
 	namedExports: {
 		makeWebSocket() {
 			mockWs = new MockWS()
@@ -18,7 +18,7 @@ describe('BGP Listener', () => {
 	let listener: BGPListener
 	beforeEach(async() => {
 		// dynamic import to let the mock take effect
-		const { createBgpListener, logger } = await import('#src/utils/index.ts')
+		const { createBgpListener, logger } = await import('#src/utils/index.js')
 		listener = createBgpListener(logger)
 		await delay(10)
 

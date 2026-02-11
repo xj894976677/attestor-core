@@ -5,11 +5,11 @@
 
 import type { ZKProofPublicSignalsOPRF } from '@joclaim/zk-symmetric-crypto'
 
-import type { OPRFVerificationData } from '#src/proto/tee-bundle.ts'
-import type { TeeBundleData } from '#src/server/utils/tee-verification.ts'
-import type { Logger } from '#src/types/general.ts'
-import { AttestorError } from '#src/utils/error.ts'
-import { makeDefaultOPRFOperator } from '#src/utils/zk.ts'
+import type { OPRFVerificationData } from '#src/proto/tee-bundle.js'
+import type { TeeBundleData } from '#src/server/utils/tee-verification.js'
+import type { Logger } from '#src/types/general.js'
+import { AttestorError } from '#src/utils/error.js'
+import { makeDefaultOPRFOperator } from '#src/utils/zk.js'
 
 export interface OprfVerificationResult {
 	position: number

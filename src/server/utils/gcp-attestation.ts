@@ -5,7 +5,7 @@
 
 import crypto, { X509Certificate } from 'crypto'
 
-import type { Logger } from '#src/types/general.ts'
+import type { Logger } from '#src/types/general.js'
 
 export interface GcpValidationResult {
 	isValid: boolean

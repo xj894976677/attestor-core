@@ -3,7 +3,7 @@ import { crypto, uint8ArrayToBinaryStr } from '@joclaim/tls'
 import { fromByteArray, toByteArray } from 'base64-js'
 import { EventTarget } from 'event-target-shim'
 
-import type { ExternalRPCIncomingMsg, ExternalRPCOutgoingMsg } from '#src/external-rpc/types.ts'
+import type { ExternalRPCIncomingMsg, ExternalRPCOutgoingMsg } from '#src/external-rpc/types.js'
 
 declare global {
 	function readline(): string

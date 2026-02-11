@@ -1,9 +1,9 @@
 import assert from 'node:assert'
 import { beforeEach, it } from 'node:test'
 
-import { AttestorClient } from '#src/client/index.ts'
-import { describeWithServer } from '#src/tests/describe-with-server.ts'
-import { AttestorError, logger } from '#src/utils/index.ts'
+import { AttestorClient } from '#src/client/index.js'
+import { describeWithServer } from '#src/tests/describe-with-server.js'
+import { AttestorError, logger } from '#src/utils/index.js'
 
 describeWithServer('RPC Communication', opts => {
 

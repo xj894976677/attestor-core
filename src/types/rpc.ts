@@ -1,5 +1,5 @@
-import type { RPCMessage, TunnelDisconnectEvent, TunnelMessage } from '#src/proto/api.ts'
-import type { AttestorError } from '#src/utils/error.ts'
+import type { RPCMessage, TunnelDisconnectEvent, TunnelMessage } from '#src/proto/api.js'
+import type { AttestorError } from '#src/utils/error.js'
 
 // simple typescript type to extract all fields that end with the givens suffix
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

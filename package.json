@@ -1,10 +1,10 @@
 {
-  "name": "@reclaimprotocol/attestor-core",
-  "version": "5.0.0",
+  "name": "@joclaim/attestor-core",
+  "version": "0.2.1",
   "description": "",
   "type": "module",
   "imports": {
-    "#src/*.ts": "./src/*.ts"
+    "#src/*.js": "./src/*.ts"
   },
   "exports": {
     ".": {
@@ -17,7 +17,7 @@
     }
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build": "tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json",
     "build:browser": "sh ./src/scripts/build-browser.sh",
     "run:tsc": "node --experimental-strip-types",
     "start": "npm run run:tsc -- src/scripts/start-server.ts",
@@ -77,11 +77,12 @@
   "license": "AGPL-3.0-only",
   "dependencies": {
     "@bufbuild/protobuf": "^2.9.0",
+    "@joclaim/snarkjs": "0.1.0",
+    "@joclaim/tls": "0.2.0",
+    "@joclaim/zk-symmetric-crypto": "0.1.0",
     "@peculiar/asn1-x509": "^2.5.0",
     "@peculiar/webcrypto": "^1.5.0",
     "@peculiar/x509": "^1.14.0",
-    "@joclaim/tls": "0.1.0",
-    "@joclaim/zk-symmetric-crypto": "0.1.0",
     "ajv": "^8.17.1",
     "canonicalize": "^2.0.0",
     "cbor-x": "^1.6.0",
@@ -100,7 +101,6 @@
     "pino": "^9.11.0",
     "re2": "^1.22.1",
     "serve-static": "^1.16.2",
-    "@joclaim/snarkjs": "0.1.0",
     "ws": "^8.18.0",
     "xpath": "^0.0.34"
   },
@@ -123,6 +123,7 @@
     "event-target-shim": "^6.0.2",
     "json-schema-to-typescript": "^15.0.3",
     "ts-proto": "^2.5.0",
+    "tsc-alias": "^1.8.16",
     "typechain": "^8.3.2",
     "typescript": "^5.7.2",
     "whatwg-url": "^14.2.0",

@@ -1,6 +1,6 @@
 import { readFileSync, readdirSync, writeFileSync, unlinkSync, existsSync, mkdirSync } from 'fs'
 import { join, resolve } from 'path'
-import { logger as LOGGER } from '#src/utils/index.ts'
+import { logger as LOGGER } from '#src/utils/index.js'
 
 const logger = LOGGER.child({ module: 'provider-store' })
 

@@ -12,14 +12,14 @@ import { after, afterEach, before, beforeEach, describe, it } from 'node:test'
 import { stderr, stdout } from 'process'
 import type { WebSocketServer } from 'ws'
 
-import { generateRpcRequestId } from '#src/external-rpc/utils.ts'
-import { ALL_ENC_ALGORITHMS } from '#src/external-rpc/zk.ts'
-import { createServer } from '#src/server/create-server.ts'
-import { getRandomPort, randomPrivateKey } from '#src/tests/utils.ts'
-import { B64_JSON_REPLACER, B64_JSON_REVIVER } from '#src/utils/b64-json.ts'
-import { uint8ArrayToBinaryStr } from '#src/utils/generics.ts'
-import { logger } from '#src/utils/logger.ts'
-import { makeDefaultZkOperator } from '#src/utils/zk.ts'
+import { generateRpcRequestId } from '#src/external-rpc/utils.js'
+import { ALL_ENC_ALGORITHMS } from '#src/external-rpc/zk.js'
+import { createServer } from '#src/server/create-server.js'
+import { getRandomPort, randomPrivateKey } from '#src/tests/utils.js'
+import { B64_JSON_REPLACER, B64_JSON_REVIVER } from '#src/utils/b64-json.js'
+import { uint8ArrayToBinaryStr } from '#src/utils/generics.js'
+import { logger } from '#src/utils/logger.js'
+import { makeDefaultZkOperator } from '#src/utils/zk.js'
 
 // algorithm doesn't matter, as the JSC bridge handles that part internally
 // we'll just initialise all of them now

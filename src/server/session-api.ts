@@ -1,6 +1,6 @@
 import type { IncomingMessage, ServerResponse } from 'http'
-import { createSession, getSession, updateSessionStatus, submitProof } from '#src/server/session-store.ts'
-import { logger as LOGGER } from '#src/utils/index.ts'
+import { createSession, getSession, updateSessionStatus, submitProof } from '#src/server/session-store.js'
+import { logger as LOGGER } from '#src/utils/index.js'
 
 const logger = LOGGER.child({ module: 'session-api' })
 

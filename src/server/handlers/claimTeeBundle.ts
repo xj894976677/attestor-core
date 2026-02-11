@@ -3,21 +3,21 @@
  * Handles ClaimTeeBundleRequest by verifying TEE attestations and reconstructing TLS transcript
  */
 
-import type { ProviderClaimInfo } from '#src/proto/api.ts'
-import { ClaimTeeBundleResponse } from '#src/proto/api.ts'
-import type { CertificateInfo } from '#src/proto/tee-bundle.ts'
-import { VerificationBundle } from '#src/proto/tee-bundle.ts'
-import { substituteParamValues } from '#src/providers/http/index.ts'
-import { assertValidProviderTranscript } from '#src/server/utils/assert-valid-claim-request.ts'
-import { getAttestorAddress, niceParseJsonObject, signAsAttestor } from '#src/server/utils/generics.ts'
-import { verifyOprfProofs } from '#src/server/utils/tee-oprf-verification.ts'
-import type { TeeTranscriptData } from '#src/server/utils/tee-transcript-reconstruction.ts'
-import { reconstructTlsTranscript } from '#src/server/utils/tee-transcript-reconstruction.ts'
-import { verifyTeeBundle } from '#src/server/utils/tee-verification.ts'
-import type { Logger } from '#src/types/general.ts'
-import type { ProviderCtx, RPCHandler, Transcript } from '#src/types/index.ts'
-import { AttestorError } from '#src/utils/error.ts'
-import { createSignDataForClaim, getIdentifierFromClaimInfo } from '#src/utils/index.ts'
+import type { ProviderClaimInfo } from '#src/proto/api.js'
+import { ClaimTeeBundleResponse } from '#src/proto/api.js'
+import type { CertificateInfo } from '#src/proto/tee-bundle.js'
+import { VerificationBundle } from '#src/proto/tee-bundle.js'
+import { substituteParamValues } from '#src/providers/http/index.js'
+import { assertValidProviderTranscript } from '#src/server/utils/assert-valid-claim-request.js'
+import { getAttestorAddress, niceParseJsonObject, signAsAttestor } from '#src/server/utils/generics.js'
+import { verifyOprfProofs } from '#src/server/utils/tee-oprf-verification.js'
+import type { TeeTranscriptData } from '#src/server/utils/tee-transcript-reconstruction.js'
+import { reconstructTlsTranscript } from '#src/server/utils/tee-transcript-reconstruction.js'
+import { verifyTeeBundle } from '#src/server/utils/tee-verification.js'
+import type { Logger } from '#src/types/general.js'
+import type { ProviderCtx, RPCHandler, Transcript } from '#src/types/index.js'
+import { AttestorError } from '#src/utils/error.js'
+import { createSignDataForClaim, getIdentifierFromClaimInfo } from '#src/utils/index.js'
 
 export const claimTeeBundle: RPCHandler<'claimTeeBundle'> = async(
 	teeBundleRequest,

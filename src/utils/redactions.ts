@@ -1,7 +1,7 @@
 import { base64Encode } from '@bufbuild/protobuf/wire'
 import { concatenateUint8Arrays } from '@joclaim/tls'
 
-import type { ArraySlice, RedactedOrHashedArraySlice, TOPRFProofParams } from '#src/types/index.ts'
+import type { ArraySlice, RedactedOrHashedArraySlice, TOPRFProofParams } from '#src/types/index.js'
 
 export const REDACTION_CHAR = '*'
 export const REDACTION_CHAR_CODE = REDACTION_CHAR.charCodeAt(0)

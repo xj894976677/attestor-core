@@ -1,8 +1,8 @@
 import type { EncryptionAlgorithm, OPRFOperator, ZKEngine, ZKOperator } from '@joclaim/zk-symmetric-crypto'
 
-import type { ExecuteOPRFOpts, ExecuteZKOpts } from '#src/external-rpc/types.ts'
-import { rpcRequest } from '#src/external-rpc/utils.ts'
-import { logger, makeDefaultZkOperator } from '#src/utils/index.ts'
+import type { ExecuteOPRFOpts, ExecuteZKOpts } from '#src/external-rpc/types.js'
+import { rpcRequest } from '#src/external-rpc/utils.js'
+import { logger, makeDefaultZkOperator } from '#src/utils/index.js'
 
 export const ALL_ENC_ALGORITHMS: EncryptionAlgorithm[] = [
 	'aes-256-ctr',

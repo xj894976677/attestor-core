@@ -1,5 +1,5 @@
-import type { ExternalRPCIncomingMsg } from '#src/external-rpc/types.ts'
-import { RPC_MSG_BRIDGE, rpcRequest } from '#src/external-rpc/utils.ts'
+import type { ExternalRPCIncomingMsg } from '#src/external-rpc/types.js'
+import { RPC_MSG_BRIDGE, rpcRequest } from '#src/external-rpc/utils.js'
 
 export class RPCWebSocket extends EventTarget implements WebSocket {
 

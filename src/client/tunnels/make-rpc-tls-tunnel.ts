@@ -1,5 +1,5 @@
-import type { TLSConnectionOptions } from '@reclaimprotocol/tls'
-import { concatenateUint8Arrays, makeTLSClient } from '@reclaimprotocol/tls'
+import type { TLSConnectionOptions } from '@joclaim/tls'
+import { concatenateUint8Arrays, makeTLSClient } from '@joclaim/tls'
 
 import { makeRpcTcpTunnel } from '#src/client/tunnels/make-rpc-tcp-tunnel.ts'
 import { DEFAULT_HTTPS_PORT } from '#src/config/index.ts'

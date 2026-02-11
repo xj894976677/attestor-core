@@ -1,5 +1,5 @@
-import type { CipherSuite, TLSConnectionOptions } from '@reclaimprotocol/tls'
-import { SUPPORTED_NAMED_CURVES } from '@reclaimprotocol/tls'
+import type { CipherSuite, TLSConnectionOptions } from '@joclaim/tls'
+import { SUPPORTED_NAMED_CURVES } from '@joclaim/tls'
 
 import { detectEnvironment } from '#src/utils/env.ts'
 

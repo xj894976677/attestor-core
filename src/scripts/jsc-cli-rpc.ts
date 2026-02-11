@@ -1,8 +1,8 @@
 // eslint-disable-next-line simple-import-sort/imports
 import '#src/external-rpc/jsc-polyfills/index.ts'
 
-import { setCryptoImplementation } from '@reclaimprotocol/tls'
-import { pureJsCrypto } from '@reclaimprotocol/tls/purejs-crypto'
+import { setCryptoImplementation } from '@joclaim/tls'
+import { pureJsCrypto } from '@joclaim/tls/purejs-crypto'
 
 import { handleIncomingMessage } from '#src/external-rpc/index.ts'
 import { B64_JSON_REVIVER } from '#src/utils/b64-json.ts'

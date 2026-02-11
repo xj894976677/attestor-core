@@ -1,6 +1,6 @@
 // noinspection ExceptionCaughtLocallyJS
 
-import { concatenateUint8Arrays } from '@reclaimprotocol/tls'
+import { concatenateUint8Arrays } from '@joclaim/tls'
 import type { Element, Node } from 'domhandler'
 import type {
 	Expression } from 'esprima-next'

@@ -1,4 +1,4 @@
-export * as tls from '@reclaimprotocol/tls'
+export * as tls from '@joclaim/tls'
 export * from './client/utils/client-socket.ts'
 export * from './config/index.ts'
 export * from './types/index.ts'

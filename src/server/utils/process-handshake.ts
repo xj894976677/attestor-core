@@ -1,7 +1,7 @@
 import type {
 	CipherSuite,
 	TLSProtocolVersion,
-	X509Certificate } from '@reclaimprotocol/tls'
+	X509Certificate } from '@joclaim/tls'
 import {
 	concatenateUint8Arrays,
 	getSignatureDataTls12,
@@ -15,7 +15,7 @@ import {
 	SUPPORTED_RECORD_TYPE_MAP, uint8ArrayToDataView,
 	verifyCertificateChain,
 	verifyCertificateSignature
-} from '@reclaimprotocol/tls'
+} from '@joclaim/tls'
 
 import type { ClaimTunnelRequest } from '#src/proto/api.ts'
 import { TranscriptMessageSenderType } from '#src/proto/api.ts'

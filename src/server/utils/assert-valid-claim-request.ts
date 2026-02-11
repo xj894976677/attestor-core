@@ -1,8 +1,8 @@
 import {
 	areUint8ArraysEqual,
 	concatenateUint8Arrays
-} from '@reclaimprotocol/tls'
-import type { ZKEngine } from '@reclaimprotocol/zk-symmetric-crypto'
+} from '@joclaim/tls'
+import type { ZKEngine } from '@joclaim/zk-symmetric-crypto'
 
 import type {
 	InitRequest,

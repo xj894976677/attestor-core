@@ -1,5 +1,5 @@
 import { TextDecoder, TextEncoder } from '@kayahr/text-encoding'
-import { crypto, uint8ArrayToBinaryStr } from '@reclaimprotocol/tls'
+import { crypto, uint8ArrayToBinaryStr } from '@joclaim/tls'
 import { fromByteArray, toByteArray } from 'base64-js'
 import { EventTarget } from 'event-target-shim'
 

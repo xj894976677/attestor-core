@@ -1,4 +1,4 @@
-import type { EncryptionAlgorithm, OPRFOperator, ZKEngine, ZKOperator } from '@reclaimprotocol/zk-symmetric-crypto'
+import type { EncryptionAlgorithm, OPRFOperator, ZKEngine, ZKOperator } from '@joclaim/zk-symmetric-crypto'
 
 import type { ExecuteOPRFOpts, ExecuteZKOpts } from '#src/external-rpc/types.ts'
 import { rpcRequest } from '#src/external-rpc/utils.ts'

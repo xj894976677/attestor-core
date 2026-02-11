@@ -2,7 +2,7 @@
  * Test with the new verification bundle that contains attestation docs
  */
 
-import type { ZKProofPublicSignalsOPRF } from '@reclaimprotocol/zk-symmetric-crypto'
+import type { ZKProofPublicSignalsOPRF } from '@joclaim/zk-symmetric-crypto'
 import { readFileSync } from 'fs'
 import assert from 'node:assert'
 import { describe, it } from 'node:test'

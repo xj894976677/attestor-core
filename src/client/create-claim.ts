@@ -1,5 +1,5 @@
-import type { TLSConnectionOptions, TLSPacketContext } from '@reclaimprotocol/tls'
-import { asciiToUint8Array } from '@reclaimprotocol/tls'
+import type { TLSConnectionOptions, TLSPacketContext } from '@joclaim/tls'
+import { asciiToUint8Array } from '@joclaim/tls'
 
 import { makeRpcTlsTunnel } from '#src/client/tunnels/make-rpc-tls-tunnel.ts'
 import { getAttestorClientFromPool } from '#src/client/utils/attestor-pool.ts'

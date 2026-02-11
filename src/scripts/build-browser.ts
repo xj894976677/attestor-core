@@ -15,7 +15,7 @@ const rslt = await esbuild.build({
 		'crypto': '#src/scripts/fallbacks/crypto.ts',
 		'koffi': '#src/scripts/fallbacks/empty.ts',
 		'ip-cidr': '#src/scripts/fallbacks/empty.ts',
-		'snarkjs': '#src/scripts/fallbacks/snarkjs.ts',
+		'@joclaim/snarkjs': '#src/scripts/fallbacks/snarkjs.ts',
 		're2': '#src/scripts/fallbacks/re2.ts',
 	},
 	external: [
@@ -25,7 +25,7 @@ const rslt = await esbuild.build({
 		'ip-cidr',
 		'serve-static',
 		're2',
-		'snarkjs',
+		'@joclaim/snarkjs',
 		'ws',
 
 		'fs/promises',

@@ -1,10 +1,10 @@
 import type {
-	CipherSuite } from '@reclaimprotocol/tls'
+	CipherSuite } from '@joclaim/tls'
 import {
 	crypto,
 	encryptWrappedRecord,
 	SUPPORTED_CIPHER_SUITE_MAP
-} from '@reclaimprotocol/tls'
+} from '@joclaim/tls'
 import { strToUint8Array } from 'src/utils/generics.ts'
 
 import type { CompleteTLSPacket } from '#src/types/index.ts'

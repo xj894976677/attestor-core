@@ -1,5 +1,5 @@
 import type {
-	CipherSuite, TLSProtocolVersion } from '@reclaimprotocol/tls'
+	CipherSuite, TLSProtocolVersion } from '@joclaim/tls'
 import {
 	areUint8ArraysEqual,
 	CONTENT_TYPE_MAP,
@@ -8,8 +8,8 @@ import {
 	PACKET_TYPE,
 	SUPPORTED_CIPHER_SUITE_MAP,
 	uint8ArrayToBinaryStr,
-	uint8ArrayToDataView } from '@reclaimprotocol/tls'
-import { REDACTION_CHAR_CODE } from '@reclaimprotocol/zk-symmetric-crypto'
+	uint8ArrayToDataView } from '@joclaim/tls'
+import { REDACTION_CHAR_CODE } from '@joclaim/zk-symmetric-crypto'
 
 import { RPCMessage, RPCMessages } from '#src/proto/api.ts'
 import type {

@@ -22,8 +22,8 @@ if [ ! -d "node_modules" ]; then
     npm install
 else
     echo "node_modules 已存在，检查关键依赖..."
-    if [ ! -d "node_modules/@reclaimprotocol/tls" ]; then
-        echo "@reclaimprotocol/tls 缺失，重新安装..."
+    if [ ! -d "node_modules/@joclaim/tls" ]; then
+        echo "@joclaim/tls 缺失，重新安装..."
         npm install
     else
         echo "依赖完整"
@@ -54,7 +54,7 @@ echo "=== 确保 data/providers 目录存在 ==="
 mkdir -p data/providers
 
 echo "=== 下载 ZK 文件（如需要）==="
-if [ ! -d "node_modules/@reclaimprotocol/zk-symmetric-crypto/resources" ] || [ -z "$(ls -A node_modules/@reclaimprotocol/zk-symmetric-crypto/resources 2>/dev/null)" ]; then
+if [ ! -d "node_modules/@joclaim/zk-symmetric-crypto/resources" ] || [ -z "$(ls -A node_modules/@joclaim/zk-symmetric-crypto/resources 2>/dev/null)" ]; then
     echo "下载 ZK 证明文件..."
     npm run download:zk-files 2>/dev/null || echo "警告: ZK 文件下载失败，可能影响证明生成"
 else

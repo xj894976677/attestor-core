@@ -42,7 +42,7 @@
     "generate:avs": "typechain -- --target ethers-v5 --out-dir src/avs/contracts avs/contracts/out/ReclaimServiceManager.sol/*.json",
     "start:chain": "bash ./avs/utils/anvil/start-anvil-chain-with-el-and-avs-deployed.sh",
     "commitlint": "commitlint --edit",
-    "download:zk-files": "node node_modules/@reclaimprotocol/zk-symmetric-crypto/lib/scripts/download-files",
+    "download:zk-files": "node node_modules/@joclaim/zk-symmetric-crypto/lib/scripts/download-files",
     "generate:toprf-keys": "npm run run:tsc -- src/scripts/generate-toprf-keys.ts",
     "publish:pkg": "npm publish --access public"
   },
@@ -80,8 +80,8 @@
     "@peculiar/asn1-x509": "^2.5.0",
     "@peculiar/webcrypto": "^1.5.0",
     "@peculiar/x509": "^1.14.0",
-    "@reclaimprotocol/tls": "github:reclaimprotocol/tls",
-    "@reclaimprotocol/zk-symmetric-crypto": "^5.0.4",
+    "@joclaim/tls": "0.1.0",
+    "@joclaim/zk-symmetric-crypto": "0.1.0",
     "ajv": "^8.17.1",
     "canonicalize": "^2.0.0",
     "cbor-x": "^1.6.0",
@@ -100,7 +100,7 @@
     "pino": "^9.11.0",
     "re2": "^1.22.1",
     "serve-static": "^1.16.2",
-    "snarkjs": "^0.7.5",
+    "@joclaim/snarkjs": "0.1.0",
     "ws": "^8.18.0",
     "xpath": "^0.0.34"
   },

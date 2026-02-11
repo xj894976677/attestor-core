@@ -3,7 +3,7 @@
  * Verifies OPRF proofs and replaces ranges in reconstructed plaintext
  */
 
-import type { ZKProofPublicSignalsOPRF } from '@reclaimprotocol/zk-symmetric-crypto'
+import type { ZKProofPublicSignalsOPRF } from '@joclaim/zk-symmetric-crypto'
 
 import type { OPRFVerificationData } from '#src/proto/tee-bundle.ts'
 import type { TeeBundleData } from '#src/server/utils/tee-verification.ts'

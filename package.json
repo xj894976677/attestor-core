@@ -1,6 +1,6 @@
 {
   "name": "@joclaim/attestor-core",
-  "version": "0.2.1",
+  "version": "0.3.2",
   "description": "",
   "type": "module",
   "imports": {
@@ -78,7 +78,7 @@
   "dependencies": {
     "@bufbuild/protobuf": "^2.9.0",
     "@joclaim/snarkjs": "0.1.0",
-    "@joclaim/tls": "0.2.0",
+    "@joclaim/tls": "0.3.2",
     "@joclaim/zk-symmetric-crypto": "0.1.0",
     "@peculiar/asn1-x509": "^2.5.0",
     "@peculiar/webcrypto": "^1.5.0",

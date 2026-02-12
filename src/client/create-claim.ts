@@ -489,16 +489,25 @@ async function _createClaimOnAttestor<N extends ProviderName>(
 		}
 
 		if(provider.getResponseRedactions) {
-			serverPacketsToReveal = await getBlocksToReveal(
-				serverBlocks,
-				total => provider.getResponseRedactions!({
-					response: total,
-					params,
-					logger,
-					ctx: PROVIDER_CTX
-				}),
-				performOprf
-			)
+			if(redactionMode === 'key-update') {
+				// key-update mode: reveal all server blocks via session key
+				// (directReveal), skip ZK proof generation for response.
+				// The attestor decrypts and verifies the full response,
+				// but only extractedParameters are returned in the claim.
+				logger.info('key-update mode: revealing all server blocks via directReveal')
+				serverPacketsToReveal = 'all'
+			} else {
+				serverPacketsToReveal = await getBlocksToReveal(
+					serverBlocks,
+					total => provider.getResponseRedactions!({
+						response: total,
+						params,
+						logger,
+						ctx: PROVIDER_CTX
+					}),
+					performOprf
+				)
+			}
 		}
 
 		const revealedPackets: Transcript<Uint8Array> = packets

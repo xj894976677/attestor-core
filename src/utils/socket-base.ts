@@ -28,7 +28,7 @@ export class AttestorSocket implements IAttestorSocket {
 		this.metadata = metadata
 		this.logger = logger
 
-		socket.addEventListener('error', (event) => {
+		socket.addEventListener('error', (event: any) => {
 			const witErr = AttestorError.fromError(
 				event.error || new Error(event.message),
 				'ERROR_NETWORK_ERROR'
@@ -47,9 +47,9 @@ export class AttestorSocket implements IAttestorSocket {
 			)
 		))
 
-		socket.addEventListener('message', async({ data }) => {
+		socket.addEventListener('message', async(event: any) => {
 			try {
-				await wsMessageHandler.call(this, data)
+				await wsMessageHandler.call(this, event.data)
 			} catch(err) {
 				this.logger.error({ err }, 'error processing message')
 			}
